@@ -2,9 +2,9 @@ export default {
   name: 'RenderDom',
   functional: true,
   props: {
-    render: Function
+    render: Function,
   },
   render: (h, ctx) => {
-    return ctx.props.render(h)
-  }
-}
+    return ctx.props.render(h);
+  },
+};
