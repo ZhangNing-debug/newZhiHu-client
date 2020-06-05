@@ -3,7 +3,7 @@
 ### Customize configuration
 See [Configuration Reference](https://cli.vuejs.org/zh/config/).
 ### NewZhiHu
-这是一个突发奇想地高仿知乎-后期会开发多端APP 微信小程序
+这是一个突发奇想的高仿知乎客户端-后期会开发多端APP 微信小程序
 
 - 前端使用 TypeScript。
 
@@ -17,9 +17,9 @@ See [Configuration Reference](https://cli.vuejs.org/zh/config/).
 
 ### 项目本地运行方法
 
- - `git clone https://github.com/7148505/newZhiHu.git`
-
- - 前端代码在 client 目录下，node 代码在 server 目录下，打开对应的目录，查看 package.json，npm 执行 对应的 script 即可。
+ - `git clone https://github.com/7148505/newZhiHu-client`
+ 
+ - `查看 package.json，npm 执行 对应的 script 即可`
 
 ### 线上部署
 
