@@ -72,7 +72,7 @@ module.exports = {
     // "no-loop-func": 1, //禁止在循环中使用函数（如果没有引用外部变量不形成闭包就可以）
     // "no-mixed-requires": [0, false], //声明时不能混用声明类型
     // "no-mixed-spaces-and-tabs": [2, false], //禁止混用tab和空格
-    // "linebreak-style": [0, "windows"], //换行风格
+    'linebreak-style': [0, 'windows'], // 换行风格
     // "no-multi-spaces": 1, //不能用多余的空格
     // "no-multi-str": 2, //字符串不能用\换行
     // "no-multiple-empty-lines": [1, { max: 2 }], //空行最多不能超过2行
@@ -134,7 +134,7 @@ module.exports = {
     // "block-scoped-var": 0, //块语句中使用var
     // "brace-style": [1, "1tbs"], //大括号风格
     // "callback-return": 1, //避免多次调用回调什么的
-    // camelcase: 2, //强制驼峰法命名
+    'camelcase': 0, // 强制驼峰法命名
     // "comma-dangle": [2, "never"], //对象字面量项尾不能有逗号
     // "comma-spacing": 0, //逗号前后的空格
     // "comma-style": [2, "last"], //逗号风格，换行时在行首还是行尾
@@ -158,7 +158,7 @@ module.exports = {
     // indent: [2, 4], //缩进风格
     // "init-declarations": 0, //声明时必须赋初值
     // "key-spacing": [0, { beforeColon: false, afterColon: true }], //对象字面量中冒号的前后空格
-    // "lines-around-comment": 0, //行前/行后备注
+    'lines-around-comment': 0, // 行前/行后备注
     // "max-depth": [0, 4], //嵌套块深度
     // "max-len": [0, 80, 4], //字符串最大长度
     // "max-nested-callbacks": [0, 2], //回调嵌套深度
@@ -194,11 +194,20 @@ module.exports = {
     // "spaced-comment": 0, //注释风格要不要有空格什么的
     // strict: 2, //使用严格模式
     // "use-isnan": 2, //禁止比较时使用NaN，只能用isNaN()
-    // "valid-jsdoc": 0, //jsdoc规则
+    'valid-jsdoc': 0, // jsdoc规则
     // "valid-typeof": 2, //必须使用合法的typeof的值
     // "vars-on-top": 2, //var必须放在作用域顶部
     // "wrap-iife": [2, "inside"], //立即执行函数表达式的小括号风格
     // "wrap-regex": 0, //正则表达式字面量用小括号包起来
     // yoda: [2, "never"], //禁止尤达条件
+    'require-jsdoc': ['error', {
+      'require': {
+        'FunctionDeclaration': true,
+        'MethodDefinition': false,
+        'ClassDeclaration': false,
+        'ArrowFunctionExpression': false,
+        'FunctionExpression': false,
+      },
+    }],
   },
 };

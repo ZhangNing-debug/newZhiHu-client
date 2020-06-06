@@ -63,6 +63,7 @@ class HttpRequest {
       return Promise.reject(error);
     });
   }
+  // eslint-disable-next-line require-jsdoc
   request(options) {
     const instance = axios.create();
     options = Object.assign(this.getInsideConfig(), options);

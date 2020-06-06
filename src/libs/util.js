@@ -26,8 +26,10 @@ const showThisMenuEle = (item, access) => {
     else return false;
   } else return true;
 };
+
+
 /**
- * @param {Array} list 通过路由列表得到菜单列表
+ * @param {Array} list - 通过路由列表得到菜单列表
  * @return {Array}
  */
 export const getMenuByRouter = (list, access) => {

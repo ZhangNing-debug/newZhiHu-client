@@ -63,9 +63,14 @@
 </template>
 
 <script>
-import {reactive, toRefs} from 'vue';
+import {reactive, toRefs, getCurrentInstance} from 'vue';
+import {login} from '@/api/user';
+import {setToken} from '@/libs/util';
+// import config from '@/config';
+// const {homeName} = config;
 
 export default {
+  name: 'Login',
   setup() {
     const state = reactive({
       loginForm: {
@@ -104,6 +109,19 @@ export default {
       state.window = windowObjectReference;
     };
     const handleLogin = () => {
+      login(state.loginForm).then((res)=>{
+        console.log(res);
+        if (res.status === 200) {
+          console.log(res.data.token);
+          setToken(res.data.token);
+          // const {ctx} = getCurrentInstance();
+          const a = getCurrentInstance();
+          console.log(a);
+          // this.$router.push('/');
+
+          // console.log(ctx.$router.currentRoute.value);
+        }
+      });
       // userRegistration(this.loginForm).then((res: any) => {
       //   console.log(res);
       //   if (res.status === 200) {

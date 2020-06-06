@@ -19,11 +19,22 @@
 					</label>
         </div>
         <button class="searchBtn searchBtn-askButton">提问</button>
+				<!-- <Button></Button> -->
       </div>
       <div class="appHeader-UserInfo">
-        <span>通知</span>
-        <span>私信</span>
-        <span>头像</span>
+				<div class="Popover">
+					<button id="Popover16-toggle" class="appHeader-notifications">通知</button>
+				</div>
+				<div class="Popover">
+					<button id="Popover16-toggle" class="appHeader-messages">私信</button>
+				</div>
+        <div class="AppHeader-profile">
+					<div class="Popover AppHeader-menu">
+					 <button type="button" id="Popover14-toggle" >
+						 <img class="Avatar AppHeader-profileAvatar" width="30" height="30" src="https://pic4.zhimg.com/da8e974dc_is.jpg" srcset="https://pic4.zhimg.com/da8e974dc_im.jpg 2x">
+					 </button>
+					</div>
+				</div>
       </div>
     </div>
   </header>
@@ -34,6 +45,7 @@
 
 <script>
 import {reactive, toRefs} from 'vue';
+// import {Button} from 'element-ui';
 
 export default {
   setup() {
@@ -194,7 +206,17 @@ export default {
     flex: 1 1;
     justify-content: flex-end;
     display: flex;
-    align-items: center;
+		align-items: center;
+		.appHeader-notifications {
+			margin-right: 40px;
+		}
+		.appHeader-messages {
+			margin-right: 40px;
+		}
+		.Popover {
+			position: relative;
+    	display: inline-block;
+		}
 	}
 }
 </style>

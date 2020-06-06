@@ -11,8 +11,11 @@
     "analyzer": "cross-env use_analyzer=true npm run serve --fix"
   },
   "dependencies": {
+    "axios": "^0.19.2",
     "core-js": "^3.6.4",
     "cross-env": "^7.0.2",
+    "element-ui": "^2.13.2",
+    "js-cookie": "^2.2.1",
     "vue": "^3.0.0-beta.1",
     "vue-router": "^4.0.0-alpha.6",
     "vuex": "^4.0.0-alpha.1"
@@ -28,6 +31,7 @@
     "@vue/compiler-sfc": "^3.0.0-beta.1",
     "@vue/eslint-config-prettier": "^6.0.0",
     "babel-eslint": "^10.1.0",
+    "babel-plugin-component": "^1.1.1",
     "eslint": "^7.1.0",
     "eslint-config-airbnb": "^18.1.0",
     "eslint-config-elemefe": "^0.3.0",
