@@ -1,45 +1,45 @@
-import axios from '@/libs/api.request';
+import axios from "@/libs/api.request";
 
-export const login = ({username, password}) => {
+export const login = ({ username, password }) => {
   const data = {
     username,
-    password,
+    password
   };
   return axios.request({
-    url: 'user/login',
+    url: "user/login",
     data,
-    method: 'post',
+    method: "post"
   });
 };
 
-export const getUserInfo = (token) => {
+export const getUserInfo = token => {
   return axios.request({
-    url: 'get_info',
+    url: "get_info",
     params: {
-      token,
+      token
     },
-    method: 'get',
+    method: "get"
   });
 };
 
-export const logout = (token) => {
+export const logout = () => {
   return axios.request({
-    url: 'logout',
-    method: 'post',
+    url: "logout",
+    method: "post"
   });
 };
 
 export const getUnreadCount = () => {
   return axios.request({
-    url: 'message/count',
-    method: 'get',
+    url: "message/count",
+    method: "get"
   });
 };
 
 export const getMessage = () => {
   return axios.request({
-    url: 'message/init',
-    method: 'get',
+    url: "message/init",
+    method: "get"
   });
 };
 
