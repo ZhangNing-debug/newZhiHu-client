@@ -1,6 +1,6 @@
 {
-  "name": "aaasdddda",
-  "version": "0.1.0",
+  "name": "newzhihu-client",
+  "version": "0.1.5",
   "private": true,
   "scripts": {
     "dev": "vue-cli-service serve --fix --open",
