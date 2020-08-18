@@ -13,9 +13,9 @@
         <div class="main-content">
           <div class="login-tabs">
             <div
-              :class="tabCls(item)"
               v-for="(item, index) in navList"
               :key="index"
+              :class="tabCls(item)"
               @click="handleChange(item)"
             >
               {{ item.label }}
@@ -23,54 +23,54 @@
           </div>
           <div class="login-account">
             <input
+              v-if="activeKey === 'Password_login'"
+              v-model="loginForm.username"
               type="text"
               name="username"
               placeholder="手机号或邮箱"
               class="input input-item"
-              v-model="loginForm.username"
-              v-if="activeKey === 'Password_login'"
             />
             <input
+              v-else
+              v-model="loginForm.username"
               type="text"
               name="username"
               placeholder="请输入手机号"
               class="input input-item"
-              v-model="loginForm.username"
-              v-else
             />
           </div>
           <div class="login-password">
             <input
+              v-if="activeKey === 'Password_login'"
+              v-model="loginForm.password"
               type="password"
               name="password"
               placeholder="密码"
               class="input input-item"
-              v-model="loginForm.password"
               @keyup="checkCapslock"
               @blur="capsTooltip = false"
               @keyup.enter="handleLogin"
-              v-if="activeKey === 'Password_login'"
             />
             <input
+              v-else
+              v-model="loginForm.password"
               type="password"
               name="password"
               :placeholder="tipText"
               class="input input-item"
-              v-model="loginForm.password"
               @keyup="checkCapslock"
               @blur="capsTooltip = false"
               @keyup.enter="handleLogin"
-              v-else
             />
           </div>
           <div class="login-options">
-            <div class="password-free" v-if="activeKey === 'Password_login'">
+            <div v-if="activeKey === 'Password_login'" class="password-free">
               <button class="login-switchType button--plain">
                 海外手机号登录
               </button>
               <button class="login-cannotLogin button--plain">忘记密码?</button>
             </div>
-            <div class="password-login" v-else>
+            <div v-else class="password-login">
               <button
                 v-if="letterStatus === 'Voice'"
                 class="login-cannotLogin button--plain"
@@ -262,7 +262,6 @@
     </footer>
   </div>
 </template>
-
 <script>
 import { reactive, toRefs, getCurrentInstance } from "vue";
 // import { login } from "@/api/user";
@@ -400,7 +399,6 @@ export default {
   }
 };
 </script>
-
 <style scoped lang="less">
 @import url("index.less");
 </style>
