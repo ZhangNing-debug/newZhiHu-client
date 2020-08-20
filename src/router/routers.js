@@ -35,6 +35,11 @@ const routes = [
     // component: () =>
     //   import(/* webpackChunkName: "about" */ "../views/Login/index.vue")
     component: Login
+  },
+  {
+    path: '/explore',
+    name: 'explore',
+    component: () => import(/* webpackChunkName: "about" */ '../views/explore.vue')
   }
 ]
 export default routes

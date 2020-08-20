@@ -1,6 +1,6 @@
 const path = require('path')
 const IS_PROD = ['production', 'prod'].includes(process.env.NODE_ENV)
-const resolve = dir => path.join(__dirname, dir)
+const resolve = (dir) => path.join(__dirname, dir)
 module.exports = {
   publicPath: process.env.NODE_ENV === 'production' ? '/' : '/', // 公共路径
   indexPath: 'index.html', // 相对于打包路径index.html的路径
@@ -9,7 +9,7 @@ module.exports = {
   lintOnSave: false, // 是否在开发环境下通过 eslint-loader 在每次保存时 lint 代码
   runtimeCompiler: true, // 是否使用包含运行时编译器的 Vue 构建版本
   productionSourceMap: !IS_PROD, // 生产环境的 source map
-  chainWebpack: config => {
+  chainWebpack: (config) => {
     config.resolve.symlinks(true) // 修复热更新失效
     config.resolve.alias // 添加别名
       .set('@', resolve('src'))
@@ -18,9 +18,23 @@ module.exports = {
       .set('@views', resolve('src/views'))
       .set('@store', resolve('src/store'))
   },
-  configureWebpack: config => {
+  configureWebpack: (config) => {
     console.log(config)
   },
-  css: {},
+  css: {
+    loaderOptions: {
+      less: {
+        modifyVars: {
+          // less vars，customize ant design theme
+
+          // 'primary-color': '#F5222D',
+          // 'link-color': '#F5222D',
+          // 'border-radius-base': '2px'
+        },
+        // DO NOT REMOVE THIS LINE
+        javascriptEnabled: true
+      }
+    }
+  },
   devServer: {}
 }
