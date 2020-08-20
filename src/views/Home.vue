@@ -98,14 +98,20 @@
               <template v-slot:overlay>
                 <a-menu>
                   <a-menu-item key="0">
-                    <a href="http://www.alipay.com/"><UserOutlined />我的主页</a>
+                    <a href="http://www.alipay.com/"
+                      ><UserOutlined style="margin-right: 0.5em;" />我的主页</a
+                    >
                   </a-menu-item>
                   <a-menu-item key="1">
-                    <a href="http://www.taobao.com/"><SettingOutlined />设置</a>
+                    <a href="http://www.taobao.com/"
+                      ><SettingOutlined style="margin-right: 0.5em;" />设置</a
+                    >
                   </a-menu-item>
                   <!-- <a-menu-divider /> -->
                   <a-menu-item key="3">
-                    <a href="http://www.taobao.com/">退出</a>
+                    <a href="http://www.taobao.com/"
+                      ><ExportOutlined style="margin-right: 0.5em;" />退出</a
+                    >
                   </a-menu-item>
                 </a-menu>
               </template>
@@ -223,41 +229,148 @@
         </div>
         <!-- 全局侧边栏 -->
         <div class="globalSideBar">
-          <a-card style="width: 300px;" class="newGlobalWrite">
+          <a-card style="width: 300px; padding: 0;" class="card newGlobalWrite">
             <div class="newGlobalWrite-navTop">
               <div class="newGlobalWrite-topItem">
-                <a-button type="primary" shape="circle" style="background: rgb(0, 132, 255);">
+                <a-button
+                  type="primary"
+                  shape="circle"
+                  class="newGlobalWrite-topButton"
+                  style="background: rgb(0, 132, 255);"
+                >
                   <ProfileOutlined />
                 </a-button>
-                <div>回答问题</div>
+                <div class="newGlobalWrite-topTitle">回答问题</div>
               </div>
               <div class="newGlobalWrite-topItem">
-                <a-button type="primary" shape="circle" style="background: rgb(255, 150, 7);">
+                <a-button
+                  type="primary"
+                  shape="circle"
+                  class="newGlobalWrite-topButton"
+                  style="background: rgb(255, 150, 7);"
+                >
                   <CameraOutlined />
                 </a-button>
-                <div>拍个视频</div>
+                <div class="newGlobalWrite-topTitle">拍个视频</div>
               </div>
               <div class="newGlobalWrite-topItem">
-                <a-button type="primary" shape="circle" style="background: rgb(244, 200, 7);">
+                <a-button
+                  type="primary"
+                  shape="circle"
+                  class="newGlobalWrite-topButton"
+                  style="background: rgb(244, 200, 7);"
+                >
                   <FormOutlined />
                 </a-button>
-                <div>写个文章</div>
+                <div class="newGlobalWrite-topTitle">写个文章</div>
               </div>
               <div class="newGlobalWrite-topItem">
-                <a-button type="primary" shape="circle" style="background: rgb(38, 191, 191);">
+                <a-button
+                  type="primary"
+                  shape="circle"
+                  class="newGlobalWrite-topButton"
+                  style="background: rgb(38, 191, 191);"
+                >
                   <HighlightOutlined />
                 </a-button>
-                <div>写个想法</div>
+                <div class="newGlobalWrite-topTitle">写个想法</div>
+              </div>
+            </div>
+            <div class="newGlobalWrite-navBottom">
+              <a-button type="link" class="newGlobalWriteBtn-item">
+                稍后答
+              </a-button>
+              <a-button type="link" class="newGlobalWriteBtn-item">
+                草稿箱
+              </a-button>
+            </div>
+          </a-card>
+          <a-card style="width: 300px;" class="card creatorEntrance">
+            <!-- <a-button type="link" class="newGlobalWriteBtn-item" style="display:flex"> -->
+            <div class="creatorEntrance-inner">
+              <div style="color: #8590a6;">
+                <SolutionOutlined style="fontsize: 18px; margin-right: 5px;" />创作中心
+              </div>
+              <div>
+                <router-link to="/"> 去开通 <RightOutlined style="color: #8590a6;" /></router-link>
+              </div>
+            </div>
+            <!-- </a-button> -->
+          </a-card>
+          <a-card style="width: 300px;" class="card globalSideBar-category">
+            <div class="globalSideBarCategory-inner">
+              <div class="newGlobalWrite-topItem">
+                <a-button
+                  type="primary"
+                  shape="circle"
+                  class="newGlobalWrite-topButton"
+                  style="background: rgb(0, 132, 255);"
+                >
+                  <ProfileOutlined />
+                </a-button>
+                <div class="newGlobalWrite-topTitle">回答问题</div>
+              </div>
+              <div class="newGlobalWrite-topItem">
+                <a-button
+                  type="primary"
+                  shape="circle"
+                  class="newGlobalWrite-topButton"
+                  style="background: rgb(255, 150, 7);"
+                >
+                  <CameraOutlined />
+                </a-button>
+                <div class="newGlobalWrite-topTitle">拍个视频</div>
+              </div>
+              <div class="newGlobalWrite-topItem">
+                <a-button
+                  type="primary"
+                  shape="circle"
+                  class="newGlobalWrite-topButton"
+                  style="background: rgb(244, 200, 7);"
+                >
+                  <FormOutlined />
+                </a-button>
+                <div class="newGlobalWrite-topTitle">写个文章</div>
+              </div>
+              <div class="newGlobalWrite-topItem">
+                <a-button
+                  type="primary"
+                  shape="circle"
+                  class="newGlobalWrite-topButton"
+                  style="background: rgb(38, 191, 191);"
+                >
+                  <HighlightOutlined />
+                  <icon-font type="icon-tuichu" />
+                </a-button>
+                <div class="newGlobalWrite-topTitle">写个想法</div>
+              </div>
+              <div class="newGlobalWrite-topItem">
+                <a-button
+                  type="primary"
+                  shape="circle"
+                  class="newGlobalWrite-topButton"
+                  style="background: rgb(244, 200, 7);"
+                >
+                  <FormOutlined />
+                </a-button>
+                <div class="newGlobalWrite-topTitle">写个文章</div>
+              </div>
+              <div class="newGlobalWrite-topItem">
+                <a-button
+                  type="primary"
+                  shape="circle"
+                  class="newGlobalWrite-topButton"
+                  style="background: rgb(38, 191, 191);"
+                >
+                  <HighlightOutlined />
+                  <icon-font type="icon-tuichu" />
+                </a-button>
+                <div class="newGlobalWrite-topTitle">写个想法</div>
               </div>
             </div>
           </a-card>
-          <a-card style="width: 300px;">
-            <p>Card content</p>
-            <p>Card content</p>
-            <p>Card content</p>
-          </a-card>
-          <div class="Card NewGlobalWrite"></div>
-          <div class="Card CreatorEntrance"></div>
+          <!-- <div class="Card NewGlobalWrite"></div> -->
+          <!-- <div class="Card CreatorEntrance"></div> -->
           <div class="Card GlobalSideBar-category"></div>
           <div class="Card GlobalSideBar-navList"></div>
           <footer class="footer"></footer>
@@ -281,9 +394,15 @@ import {
   ProfileOutlined,
   CameraOutlined,
   FormOutlined,
-  HighlightOutlined
+  HighlightOutlined,
+  SolutionOutlined,
+  RightOutlined,
+  ExportOutlined
 } from '@ant-design/icons-vue'
-
+// import { Icon } from '@ant-design'
+// const IconFont = Icon.createFromIconfontCN({
+//   scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js'
+// })
 // <UserOutlined />
 export default {
   components: {
@@ -294,7 +413,10 @@ export default {
     ProfileOutlined,
     CameraOutlined,
     FormOutlined,
-    HighlightOutlined
+    HighlightOutlined,
+    SolutionOutlined,
+    RightOutlined,
+    ExportOutlined
   },
   setup() {
     const state = reactive({
@@ -310,7 +432,7 @@ export default {
     const handleScroll = (e) => {
       state.scrollTop =
         window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
-      console.log('滚动条', e, scrollTop)
+      // console.log('滚动条', e, scrollTop)
     }
     // console.log(scrollTop)
     onMounted(() => {
@@ -612,16 +734,82 @@ export default {
         flex: 2;
         background-color: yellow;
         margin-left: 10px;
+        height: 100%;
+        .card {
+          margin-bottom: 10px;
+          background: #fff;
+          overflow: hidden;
+          /deep/ .ant-card-body {
+            padding: 0;
+          }
+        }
         .newGlobalWrite {
           .newGlobalWrite-navTop {
-            .newGlobalWrite-topItem {
-              display: inline-flex;
-              align-items: center;
-              width: 57px;
-              margin-right: 5px;
-              flex-direction: column;
-              cursor: pointer;
+            position: relative;
+            padding: 20px 15px;
+            border-bottom: 1px solid #f6f6f6;
+          }
+          .newGlobalWrite-navBottom {
+            display: flex;
+            .newGlobalWriteBtn-item {
+              height: 50px;
+              flex: 1 1;
             }
+            .newGlobalWriteBtn-item:first-child {
+              border-right: 1px solid #f6f6f6;
+            }
+          }
+        }
+        .newGlobalWrite-topItem {
+          display: inline-flex;
+          align-items: center;
+          width: 57px;
+          margin-right: 13px;
+          flex-direction: column;
+          cursor: pointer;
+          .newGlobalWrite-topButton {
+            margin: 0 auto 12px;
+          }
+          .newGlobalWrite-topTitle {
+            font-size: 12px;
+            line-height: 1;
+            text-align: center;
+            color: #444;
+            white-space: nowrap;
+          }
+        }
+        .newGlobalWrite-topItem:last-child {
+          margin-right: 0;
+        }
+        .creatorEntrance {
+          .creatorEntrance-inner {
+            display: flex;
+            justify-content: space-between;
+            height: 52px;
+            line-height: 52px;
+            width: 100%;
+            padding: 0 16px;
+          }
+        }
+        .globalSideBar-category {
+          .globalSideBarCategory-inner {
+            padding: 0 16px;
+          }
+          margin-bottom: 10px;
+          background: #fff;
+          overflow: hidden;
+          .newGlobalWrite-topItem {
+            display: inline-flex;
+            align-items: center;
+            width: 57px;
+            margin-right: 25px;
+            flex-direction: column;
+            cursor: pointer;
+            margin-bottom: 10px;
+            margin-top: 10px;
+          }
+          .newGlobalWrite-topItem:nth-child(odd) {
+            margin-right: 0px;
           }
         }
       }
