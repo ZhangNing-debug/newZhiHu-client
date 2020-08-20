@@ -12,12 +12,10 @@
               :key="index"
               :class="tabCls(item)"
               @click="handleChange(item)"
-            >
-              {{ item.label }}
-            </div>
+            >{{ item.label }}</div>
           </div>
           <div class="login-account">
-            <input
+            <a-input
               v-if="activeKey === 'Password_login'"
               v-model="loginForm.username"
               type="text"
@@ -25,7 +23,8 @@
               placeholder="手机号或邮箱"
               class="input input-item"
             />
-            <input
+
+            <a-input
               v-else
               v-model="loginForm.username"
               type="text"
@@ -35,7 +34,7 @@
             />
           </div>
           <div class="login-password">
-            <input
+            <a-input
               v-if="activeKey === 'Password_login'"
               v-model="loginForm.password"
               type="password"
@@ -46,7 +45,7 @@
               @blur="capsTooltip = false"
               @keyup.enter="handleLogin"
             />
-            <input
+            <a-input
               v-else
               v-model="loginForm.password"
               type="password"
@@ -60,9 +59,7 @@
           </div>
           <div class="login-options">
             <div v-if="activeKey === 'Password_login'" class="password-free">
-              <button class="login-switchType button--plain">
-                海外手机号登录
-              </button>
+              <button class="login-switchType button--plain">海外手机号登录</button>
               <button class="login-cannotLogin button--plain">忘记密码?</button>
             </div>
             <div v-else class="password-login">
@@ -70,21 +67,15 @@
                 v-if="letterStatus === 'Voice'"
                 class="login-cannotLogin button--plain"
                 @click="switchSmsVoice('Sms')"
-              >
-                接收短信验证码
-              </button>
+              >接收短信验证码</button>
               <button
                 v-else
                 class="login-cannotLogin button--plain"
                 @click="switchSmsVoice('Voice')"
-              >
-                接收语音验证码
-              </button>
+              >接收语音验证码</button>
             </div>
           </div>
-          <button class="login-btn button--plain" @click="handleLogin">
-            登录
-          </button>
+          <button class="login-btn button--plain" @click="handleLogin">登录</button>
 
           <div class="login-tip">
             <span>未注册手机验证后自动登录，注册即代表同意</span>

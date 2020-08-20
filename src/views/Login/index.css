@@ -1,0 +1,244 @@
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Open Sans Light';
+  letter-spacing: 0.05em;
+  font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Microsoft YaHei, Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif;
+}
+input,
+textarea,
+select,
+button,
+a:focus {
+  outline: none;
+}
+a {
+  color: inherit;
+  text-decoration: none;
+}
+.button--link,
+.button--plain {
+  height: auto;
+  padding: 0;
+  line-height: inherit;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  outline: none;
+}
+.container {
+  height: 100%;
+  background-image: url('../../assets/background/loginbgm.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #b8e5f8;
+}
+.container .homePage-logo {
+  width: 128px;
+  height: 81px;
+  margin-bottom: 24px;
+}
+.container .homePage-content {
+  display: flex;
+  flex-direction: column;
+  flex: 1 1;
+  align-items: center;
+  justify-content: center;
+  min-height: 688px;
+  height: calc(100% - 85px);
+}
+.login-wrapper {
+  background-color: #fff;
+  width: 400px;
+  box-shadow: 0 1px 3px rgba(26, 26, 26, 0.1);
+  border-radius: 2px;
+  margin: 0;
+  min-width: 0;
+  padding: 0;
+}
+.login-wrapper .main-content {
+  padding: 0 22px;
+}
+.login-wrapper .login-tabs {
+  color: #1a1a1a;
+  font-weight: 600;
+}
+.login-wrapper .login-tabs .login-tab {
+  display: inline-block;
+  color: #444;
+  font-size: 16px;
+  line-height: 60px;
+  height: 60px;
+  margin-right: 24px;
+  cursor: pointer;
+  position: relative;
+}
+.login-wrapper .login-tabs .login-tab__active::after {
+  display: block;
+  position: absolute;
+  bottom: 0;
+  content: '';
+  width: 100%;
+  height: 3px;
+  background-color: #0084ff;
+}
+.login-wrapper .login-account {
+  display: flex;
+  margin-top: 24px;
+  width: 100%;
+  height: 48px;
+  padding: 0;
+  color: #8590a6;
+}
+.login-wrapper .login-account input {
+  width: 100%;
+  height: 48px;
+  line-height: 24px;
+}
+.login-wrapper .login-password {
+  display: flex;
+  margin-top: 12px;
+  width: 100%;
+  height: 48px;
+  padding: 0;
+  color: #8590a6;
+}
+.login-wrapper .login-password input {
+  width: 100%;
+  height: 48px;
+  line-height: 24px;
+}
+.login-wrapper .login-options {
+  width: 100%;
+  margin-top: 12px;
+  height: 20px;
+}
+.login-wrapper .login-options .password-free {
+  display: flex;
+  justify-content: space-between;
+}
+.login-wrapper .login-options .password-login {
+  display: flex;
+  justify-content: flex-end;
+}
+.login-wrapper .login-options .login-switchType {
+  color: #175199;
+}
+.login-wrapper .login-options .login-switchType:hover {
+  color: #76839B;
+}
+.login-wrapper .login-options .login-cannotLogin {
+  color: #8590A6;
+}
+.login-wrapper .login-options .login-cannotLogin:hover {
+  color: #808080;
+}
+.login-wrapper .login-tip {
+  margin-top: 40px;
+  color: grey;
+  font-size: 13px;
+  border-bottom: 1px solid #EBEBEB;
+  padding-bottom: 10px;
+}
+.login-wrapper .login-btn {
+  color: #fff;
+  background-color: #0084ff;
+  width: 100%;
+  margin-top: 30px;
+  height: 36px;
+}
+.login-wrapper .login-btn:hover {
+  background-color: #0077E6;
+}
+.login-wrapper .login-socialLogin {
+  display: flex;
+  justify-content: space-between;
+  color: #8590a6;
+  height: 60px;
+  line-height: 60px;
+}
+.login-wrapper .login-socialLogin .login-socialBtnGroup {
+  display: flex;
+  margin-left: 2px;
+  transition: opacity 0.3s ease;
+}
+.login-wrapper .login-socialLogin .login-socialBtn {
+  display: inline-flex;
+  align-items: center;
+  cursor: pointer;
+  color: #8590a6;
+}
+.login-wrapper .login-socialLogin .login-socialBtn:not(:first-child) {
+  margin-left: 22px;
+}
+.login-wrapper .footer-options {
+  box-sizing: border-box;
+  margin: 0;
+  min-width: 0;
+  padding-left: 24px;
+  padding-right: 24px;
+  color: #0084FF;
+  width: 400px;
+  height: 60px;
+  align-items: center;
+  background-color: #F6F6F6;
+  display: flex;
+  font-size: inherit;
+  justify-content: space-between;
+}
+.login-wrapper .footer-options .downloadApp .downloadBtn {
+  color: #0084FF;
+  font-size: inherit;
+}
+.homePage-footer {
+  font-size: 12px;
+  line-height: 21px;
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 1px 2px #999;
+  padding-bottom: 20px;
+}
+.homePage-footer a:not(:last-child):after {
+  content: " \B7 ";
+  white-space: pre;
+  display: inline-block;
+}
+.homePage-footer a img {
+  position: relative;
+  top: 4px;
+  margin-right: 2px;
+}
+.input {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1;
+  flex: 1 1;
+  padding: 0;
+  overflow: hidden;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  background: transparent;
+  border: none;
+  resize: none;
+}
+.oauth {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 15px;
+}
+.oauth-bg {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: #f4f8fb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.oauth-btn {
+  height: 1.9rem;
+  vertical-align: bottom;
+  cursor: pointer;
+}
