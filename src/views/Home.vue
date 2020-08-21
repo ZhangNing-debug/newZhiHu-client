@@ -299,7 +299,7 @@
           </a-card>
           <a-card style="width: 300px;" class="card globalSideBar-category">
             <div class="globalSideBarCategory-inner">
-              <div class="newGlobalWrite-topItem">
+              <div class="globalSideBarCategory-topItem">
                 <a-button
                   type="primary"
                   shape="circle"
@@ -310,7 +310,7 @@
                 </a-button>
                 <div class="newGlobalWrite-topTitle">回答问题</div>
               </div>
-              <div class="newGlobalWrite-topItem">
+              <div class="globalSideBarCategory-topItem">
                 <a-button
                   type="primary"
                   shape="circle"
@@ -321,7 +321,7 @@
                 </a-button>
                 <div class="newGlobalWrite-topTitle">拍个视频</div>
               </div>
-              <div class="newGlobalWrite-topItem">
+              <div class="globalSideBarCategory-topItem">
                 <a-button
                   type="primary"
                   shape="circle"
@@ -332,7 +332,7 @@
                 </a-button>
                 <div class="newGlobalWrite-topTitle">写个文章</div>
               </div>
-              <div class="newGlobalWrite-topItem">
+              <div class="globalSideBarCategory-topItem">
                 <a-button
                   type="primary"
                   shape="circle"
@@ -344,7 +344,7 @@
                 </a-button>
                 <div class="newGlobalWrite-topTitle">写个想法</div>
               </div>
-              <div class="newGlobalWrite-topItem">
+              <div class="globalSideBarCategory-topItem">
                 <a-button
                   type="primary"
                   shape="circle"
@@ -355,7 +355,7 @@
                 </a-button>
                 <div class="newGlobalWrite-topTitle">写个文章</div>
               </div>
-              <div class="newGlobalWrite-topItem">
+              <div class="globalSideBarCategory-topItem">
                 <a-button
                   type="primary"
                   shape="circle"
@@ -466,148 +466,134 @@ export default {
     margin: 0 auto;
     align-items: center;
     transition: transform 0.3s;
-    a {
-      color: inherit;
-      text-decoration: none;
+  }
+  .appHeader-Logo {
+    color: #0077e6;
+    font-size: 24px;
+  }
+  .appHeader-Tabs {
+    margin-bottom: 0;
+    border-bottom: none;
+    display: flex;
+    padding: 0 23px;
+  }
+  .appHeader-Tab {
+    padding: 0 23px;
+  }
+  .Tabs-item {
+    display: inline-block;
+    .Tabs-link {
+      font-weight: 600;
     }
-    li {
-      list-style-type: none;
+    .Tabs-link:hover {
+      color: #444;
     }
-    .appHeader-Logo {
-      color: #0077e6;
-      font-size: 24px;
-    }
-    .appHeader-Tabs {
-      margin-bottom: 0;
-      border-bottom: none;
-      display: flex;
-      padding: 0 23px;
-    }
-    .appHeader-Tab {
-      padding: 0 23px;
-    }
-    .Tabs-item {
-      display: inline-block;
-      .Tabs-link {
-        font-weight: 600;
-      }
-      .Tabs-link:hover {
-        color: #444;
-      }
-    }
-    .appHeader-TabsLink {
-      color: #8590a6;
-      font-size: 15px;
-    }
-    .searchBar {
-      display: flex;
-      .input-Warpper {
-        position: relative;
-        display: -webkit-box;
-        display: -ms-flexbox;
-        display: flex;
-        -webkit-box-align: center;
-        -ms-flex-align: center;
-        align-items: center;
-        width: 180px;
-        height: 34px;
-        padding: 4px 10px;
-        font-size: 14px;
-        background: #fff;
-        border: 1px solid #ebebeb;
-        border-radius: 3px;
-        -webkit-box-sizing: border-box;
-        box-sizing: border-box;
-        -webkit-transition: background 0.2s, border 0.2s;
-        transition: background 0.2s, border 0.2s;
-      }
-      .searchBar-Warpper {
-        position: relative;
-        z-index: 104;
-        width: 326px;
-        .searchBar-Input {
-          width: 326px;
-          padding-left: 12px;
-          padding-right: 0;
-          -webkit-transition: width 0.2s ease, background 0.3s ease;
-          transition: width 0.2s ease, background 0.3s ease;
-        }
-      }
-      .Input {
-        color: #1a1a1a;
-        height: 24px;
-        line-height: 24px;
-        // input
-        flex: 1 1;
-        padding: 0;
-        overflow: hidden;
-        font-family: inherit;
-        font-size: inherit;
-        font-weight: inherit;
-        background: transparent;
-        border: none;
-        resize: none;
-        outline: none;
-      }
-      .searchBtn {
-        // 先临时添加颜色 后期改为button组件 直接通过参数控制
-        border-color: #0077e6;
-        background-color: #0077e6;
-        // 分割线
-        display: inline-block;
-        padding: 0 16px;
-        font-size: 14px;
-        line-height: 32px;
-        // color: #8590a6;
-        color: #fff;
-        text-align: center;
-        cursor: pointer;
-        // background: none;
-        border: 1px solid;
-        border-radius: 6px;
-        // 去除默认样式
-        outline: none;
-        &-askButton {
-          z-index: 103;
-          padding: 0 14px;
-          margin-left: 16px;
-          transition: opacity 0.3s ease, transform 0.3s ease;
-          line-height: 30px;
-        }
-      }
-      button {
-        display: inline-block;
-        padding: 0 16px;
-        font-size: 14px;
-        line-height: 32px;
-        color: #8590a6;
-        text-align: center;
-        cursor: pointer;
-        background: none;
-        border: 1px solid;
-        border-radius: 3px;
-      }
-    }
-    .appHeader-UserInfo {
-      flex: 1 1;
-      justify-content: flex-end;
+  }
+  .appHeader-TabsLink {
+    color: #8590a6;
+    font-size: 15px;
+  }
+  .searchBar {
+    display: flex;
+    .input-Warpper {
+      position: relative;
       display: flex;
       align-items: center;
-      .appHeader-notifications {
-        margin-right: 40px;
+      width: 180px;
+      height: 34px;
+      padding: 4px 10px;
+      font-size: 14px;
+      background: #fff;
+      border: 1px solid #ebebeb;
+      border-radius: 3px;
+      box-sizing: border-box;
+      transition: background 0.2s, border 0.2s;
+    }
+    .searchBar-Warpper {
+      position: relative;
+      z-index: 104;
+      width: 326px;
+      .searchBar-Input {
+        width: 326px;
+        padding-left: 12px;
+        padding-right: 0;
+        transition: width 0.2s ease, background 0.3s ease;
       }
-      .appHeader-messages {
-        margin-right: 40px;
+    }
+    .Input {
+      color: #1a1a1a;
+      height: 24px;
+      line-height: 24px;
+      // input
+      flex: 1 1;
+      padding: 0;
+      overflow: hidden;
+      font-family: inherit;
+      font-size: inherit;
+      font-weight: inherit;
+      background: transparent;
+      border: none;
+      resize: none;
+      outline: none;
+    }
+    .searchBtn {
+      // 先临时添加颜色 后期改为button组件 直接通过参数控制
+      border-color: #0077e6;
+      background-color: #0077e6;
+      // 分割线
+      display: inline-block;
+      padding: 0 16px;
+      font-size: 14px;
+      line-height: 32px;
+      // color: #8590a6;
+      color: #fff;
+      text-align: center;
+      cursor: pointer;
+      // background: none;
+      border: 1px solid;
+      border-radius: 6px;
+      // 去除默认样式
+      outline: none;
+      &-askButton {
+        z-index: 103;
+        padding: 0 14px;
+        margin-left: 16px;
+        transition: opacity 0.3s ease, transform 0.3s ease;
+        line-height: 30px;
       }
-      .Popover {
-        position: relative;
-        display: inline-block;
-        margin-right: 10px;
-        /deep/ .ant-badge-count {
-          top: 6px;
-          right: 15px;
-          // min-width: 12px;
-        }
+    }
+    button {
+      display: inline-block;
+      padding: 0 16px;
+      font-size: 14px;
+      line-height: 32px;
+      color: #8590a6;
+      text-align: center;
+      cursor: pointer;
+      background: none;
+      border: 1px solid;
+      border-radius: 3px;
+    }
+  }
+  .appHeader-UserInfo {
+    flex: 1 1;
+    justify-content: flex-end;
+    display: flex;
+    align-items: center;
+    .appHeader-notifications {
+      margin-right: 40px;
+    }
+    .appHeader-messages {
+      margin-right: 40px;
+    }
+    .Popover {
+      position: relative;
+      display: inline-block;
+      margin-right: 10px;
+      ::v-deep(.ant-badge-count) {
+        top: 6px;
+        right: 15px;
+        // min-width: 12px;
       }
     }
   }
@@ -617,76 +603,65 @@ export default {
     left: 0;
     width: 100%;
     height: 100%;
-    transition: transform 0.3s;
     min-width: 1032px;
+    transition: transform 0.3s;
     overflow: hidden;
     .pageHead-inner {
       position: relative;
       display: flex;
       width: 1000px;
       height: 52px;
-      // padding-left: 8px;
-      // padding-right: 13px;
       padding: 0 15px;
       margin: 0 auto;
       align-items: center;
       transition: transform 0.3s;
-      a {
-        color: inherit;
-        text-decoration: none;
+    }
+    .topStoryPageHead-Logo {
+      color: #0077e6;
+      font-size: 24px;
+    }
+    .topStoryPageHead {
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+    }
+    .topStoryPageHead-main {
+      display: flex;
+    }
+    .topStoryPageHead-tabs {
+      display: flex;
+      padding: 0 23px;
+      justify-content: center;
+      align-items: center;
+    }
+    .topStory-link {
+      color: #8590a6;
+      font-size: 15px;
+      padding: 0 23px;
+    }
+    .topStory-link:hover {
+      color: #444;
+    }
+    .topStory-tabsLink {
+      font-weight: 600;
+    }
+    .topStoryPageHead-aside {
+      display: flex;
+      .topStoryPageHead-search {
       }
-      li {
-        list-style-type: none;
-      }
-      .topStoryPageHead-Logo {
-        color: #0077e6;
-        font-size: 24px;
-      }
-      .topStoryPageHead {
-        width: 100%;
-        display: flex;
-        justify-content: space-between;
-        .topStoryPageHead-main {
-          display: flex;
-          .topStoryPageHead-tabs {
-            display: flex;
-            padding: 0 23px;
-            justify-content: center;
-            align-items: center;
-          }
-          .topStory-link {
-            color: #8590a6;
-            font-size: 15px;
-            padding: 0 23px;
-          }
-          .topStory-link:hover {
-            color: #444;
-          }
-          .topStory-tabsLink {
-            font-weight: 600;
-          }
-        }
-        .topStoryPageHead-aside {
-          display: flex;
-          .topStoryPageHead-search {
-          }
-          .topStoryPageHead-submit {
-            margin-left: 20px;
-            color: #fff;
-            border-color: #0084ff;
-          }
-        }
+      .topStoryPageHead-submit {
+        margin-left: 20px;
+        color: #fff;
+        border-color: #0084ff;
       }
     }
   }
   .pageHead:not(.is-shown) {
-    -webkit-transform: translateY(100%);
     transform: translateY(100%);
   }
 }
 .is-hidden {
   .appHeader-inner {
-    -webkit-transform: translateY(-100%);
     transform: translateY(-100%);
   }
 }
@@ -694,7 +669,14 @@ export default {
   z-index: 100;
   position: fixed;
 }
-
+.card {
+  margin-bottom: 10px;
+  background: #fff;
+  overflow: hidden;
+  ::v-deep(.ant-card-body)  {
+    padding: 0;
+  }
+}
 .appMain {
   width: 100%;
   height: 100%;
@@ -702,118 +684,107 @@ export default {
     width: 1000px;
     padding: 0 16px;
     margin: 10px auto;
-    .topStory-container {
-      display: flex;
-      .topStory-mainColumn {
-        height: 100vh;
-        flex: 5;
-        .topStory-mainColumnCard {
-          .topStory-tabCard {
-            border-bottom: 1px solid #f0f2f7;
-            margin-bottom: 0;
-            .topStory-tabs {
-              display: flex;
-              height: 60px;
-              .topStory-tabsLink {
-                margin: 20px;
-                line-height: 60px;
-                display: flex;
-                align-items: center;
-                //
-                color: #1a1a1a;
-              }
-              .is-active {
-                color: #0084ff;
-                font-weight: 500;
-              }
-            }
-          }
-        }
-      }
-      .globalSideBar {
-        flex: 2;
-        background-color: yellow;
-        margin-left: 10px;
-        height: 100%;
-        .card {
-          margin-bottom: 10px;
-          background: #fff;
-          overflow: hidden;
-          /deep/ .ant-card-body {
-            padding: 0;
-          }
-        }
-        .newGlobalWrite {
-          .newGlobalWrite-navTop {
-            position: relative;
-            padding: 20px 15px;
-            border-bottom: 1px solid #f6f6f6;
-          }
-          .newGlobalWrite-navBottom {
-            display: flex;
-            .newGlobalWriteBtn-item {
-              height: 50px;
-              flex: 1 1;
-            }
-            .newGlobalWriteBtn-item:first-child {
-              border-right: 1px solid #f6f6f6;
-            }
-          }
-        }
-        .newGlobalWrite-topItem {
-          display: inline-flex;
-          align-items: center;
-          width: 57px;
-          margin-right: 13px;
-          flex-direction: column;
-          cursor: pointer;
-          .newGlobalWrite-topButton {
-            margin: 0 auto 12px;
-          }
-          .newGlobalWrite-topTitle {
-            font-size: 12px;
-            line-height: 1;
-            text-align: center;
-            color: #444;
-            white-space: nowrap;
-          }
-        }
-        .newGlobalWrite-topItem:last-child {
-          margin-right: 0;
-        }
-        .creatorEntrance {
-          .creatorEntrance-inner {
-            display: flex;
-            justify-content: space-between;
-            height: 52px;
-            line-height: 52px;
-            width: 100%;
-            padding: 0 16px;
-          }
-        }
-        .globalSideBar-category {
-          .globalSideBarCategory-inner {
-            padding: 0 16px;
-          }
-          margin-bottom: 10px;
-          background: #fff;
-          overflow: hidden;
-          .newGlobalWrite-topItem {
-            display: inline-flex;
-            align-items: center;
-            width: 57px;
-            margin-right: 25px;
-            flex-direction: column;
-            cursor: pointer;
-            margin-bottom: 10px;
-            margin-top: 10px;
-          }
-          .newGlobalWrite-topItem:nth-child(odd) {
-            margin-right: 0px;
-          }
-        }
-      }
-    }
+  }
+  .topStory-container {
+    display: flex;
+  }
+  .topStory-mainColumn {
+    flex: 5;
+    height: 100vh;
+  }
+  .topStory-mainColumnCard {
+  }
+  .topStory-tabCard {
+    border-bottom: 1px solid #f0f2f7;
+    margin-bottom: 0;
+  }
+  .topStory-tabs {
+    display: flex;
+    height: 60px;
+  }
+  .topStory-tabsLink {
+    display: flex;
+    align-items: center;
+    margin: 20px;
+    line-height: 60px;
+    //
+    color: #1a1a1a;
+  }
+  .is-active {
+    color: #0084ff;
+    font-weight: 500;
+  }
+  .globalSideBar {
+    flex: 2;
+    margin-left: 10px;
+    background-color: yellow;
+    height: 100%;
+  }
+
+  .newGlobalWrite-navTop {
+    position: relative;
+    padding: 20px 15px;
+    border-bottom: 1px solid #f6f6f6;
+  }
+  .newGlobalWrite-navBottom {
+    display: flex;
+  }
+  .newGlobalWriteBtn-item {
+    height: 50px;
+    flex: 1 1;
+  }
+  .newGlobalWriteBtn-item:first-child {
+    border-right: 1px solid #f6f6f6;
+  }
+  .newGlobalWrite-topItem {
+    display: inline-flex;
+    align-items: center;
+    width: 57px;
+    margin-right: 13px;
+    flex-direction: column;
+    cursor: pointer;
+  }
+  .newGlobalWrite-topButton {
+    margin: 0 auto 12px;
+  }
+  .newGlobalWrite-topTitle {
+    font-size: 12px;
+    line-height: 1;
+    text-align: center;
+    color: #444;
+    white-space: nowrap;
+  }
+  .newGlobalWrite-topItem:last-child {
+    margin-right: 0;
+  }
+  .creatorEntrance-inner {
+    display: flex;
+    justify-content: space-between;
+    height: 52px;
+    line-height: 52px;
+    width: 100%;
+    padding: 0 16px;
+  }
+  .globalSideBar-category {
+    margin-bottom: 10px;
+    background: #fff;
+    overflow: hidden;
+  }
+  .globalSideBarCategory-inner {
+    padding: 0 16px;
+  }
+  .globalSideBarCategory-topItem {
+    display: inline-flex;
+    align-items: center;
+    width: 57px;
+    margin-right: 47px;
+    flex-direction: column;
+    cursor: pointer;
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+  .globalSideBarCategory-topItem:nth-child(3n + 3) {
+    margin-right: 0px;
   }
 }
 </style>

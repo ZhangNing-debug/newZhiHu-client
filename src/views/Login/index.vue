@@ -12,7 +12,9 @@
               :key="index"
               :class="tabCls(item)"
               @click="handleChange(item)"
-            >{{ item.label }}</div>
+            >
+              {{ item.label }}
+            </div>
           </div>
           <div class="login-account">
             <a-input
@@ -67,12 +69,16 @@
                 v-if="letterStatus === 'Voice'"
                 class="login-cannotLogin button--plain"
                 @click="switchSmsVoice('Sms')"
-              >接收短信验证码</button>
+              >
+                接收短信验证码
+              </button>
               <button
                 v-else
                 class="login-cannotLogin button--plain"
                 @click="switchSmsVoice('Voice')"
-              >接收语音验证码</button>
+              >
+                接收语音验证码
+              </button>
             </div>
           </div>
           <button class="login-btn button--plain" @click="handleLogin">登录</button>
@@ -85,20 +91,20 @@
           <div class="login-socialLogin">
             <span>社交账号登录</span>
             <span class="login-socialBtnGroup">
-              <a-button type="link"  class="login-socialBtn button--plain">
-                <WechatOutlined style="color:#60c84d;fontSize:18px"/>
+              <a-button type="link" class="login-socialBtn button--plain">
+                <WechatOutlined style="color: #60c84d; fontsize: 18px;" />
                 微信
               </a-button>
-              <a-button type="link"  class="login-socialBtn button--plain">
-                <QqOutlined style="color:#50c8fd;fontSize:18px"/>
+              <a-button type="link" class="login-socialBtn button--plain">
+                <QqOutlined style="color: #50c8fd; fontsize: 18px;" />
                 QQ
               </a-button>
-              <a-button type="link"  class="login-socialBtn button--plain">
-                <WeiboOutlined style="color:#FB6622;fontSize:18px"/>
+              <a-button type="link" class="login-socialBtn button--plain">
+                <WeiboOutlined style="color: #fb6622; fontsize: 18px;" />
                 微博
               </a-button>
               <a-button type="link" class="login-socialBtn button--plain" @click="handleLogin">
-                <GithubFilled style="fontSize:18px"/>
+                <GithubFilled style="fontsize: 18px;" />
                 Git
               </a-button>
             </span>
@@ -122,7 +128,7 @@
                     <path fill="#FFF" :d="okPath" />
                   </g>
                 </svg> -->
-                <CheckCircleFilled style="fontSize:22px;margin-right: 0.5em;"/>
+                <CheckCircleFilled style="fontsize: 22px; margin-right: 0.5em;" />
                 开通机构号
               </span>
             </a-button>
@@ -131,7 +137,7 @@
           <div class="downloadApp">
             <a-button type="link">
               <span style="display: inline-flex; align-items: center;">
-                <ZhihuCircleFilled style="fontSize:22px;margin-right: 0.5em;" />
+                <ZhihuCircleFilled style="fontsize: 22px; margin-right: 0.5em;" />
                 下载知乎APP
               </span>
             </a-button>
@@ -189,7 +195,15 @@ import { setToken } from '@/libs/util'
 // import config from '@/config';
 // const {homeName} = config;
 const prefixCls = 'login-tab'
-import { WechatOutlined, QqOutlined, WeiboOutlined, GithubFilled, ZhihuCircleFilled, CheckCircleFilled } from '@ant-design/icons-vue'
+import { message } from 'ant-design-vue'
+import {
+  WechatOutlined,
+  QqOutlined,
+  WeiboOutlined,
+  GithubFilled,
+  ZhihuCircleFilled,
+  CheckCircleFilled
+} from '@ant-design/icons-vue'
 export default {
   name: 'Login',
   components: {
@@ -277,6 +291,7 @@ export default {
       console.log('正常登录')
       setToken('65a4s65fas')
       console.log(vm)
+      message.info('登陆成功啦~')
       vm.$router.push('/')
 
       // login(state.loginForm).then(res => {
