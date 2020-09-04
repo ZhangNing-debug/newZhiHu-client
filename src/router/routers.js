@@ -1,8 +1,7 @@
-import Home from '../views/Home.vue'
-import Login from '../views/Login/index.vue'
-import Follow from '../views/component/Follow.vue'
-import Hot from '../views/component/Hot.vue'
-import Recommend from '../views/component/Recommend.vue'
+import Home from '../views/Home.vue';
+import Follow from '../views/component/Follow.vue';
+import Hot from '../views/component/Hot.vue';
+import Recommend from '../views/component/Recommend.vue';
 const routes = [
   {
     path: '/',
@@ -34,12 +33,12 @@ const routes = [
     // which is lazy-loaded when the route is visited.
     // component: () =>
     //   import(/* webpackChunkName: "about" */ "../views/Login/index.vue")
-    component: Login
+    component: () => import(/* webpackChunkName: "about" */ '@views/Login/index.vue')
   },
   {
     path: '/explore',
     name: 'explore',
-    component: () => import(/* webpackChunkName: "about" */ '../views/explore.vue')
+    component: () => import(/* webpackChunkName: "about" */ '@views/explore.vue')
   }
-]
-export default routes
+];
+export default routes;

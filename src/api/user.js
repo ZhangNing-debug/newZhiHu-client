@@ -1,16 +1,16 @@
-import axios from '@/libs/api.request'
+import axios from '@/libs/api.request';
 
 export const login = ({ username, password }) => {
   const data = {
     username,
     password
-  }
+  };
   return axios.request({
     url: 'user/login',
     data,
     method: 'post'
-  })
-}
+  });
+};
 
 export const getUserInfo = token => {
   return axios.request({
@@ -19,29 +19,29 @@ export const getUserInfo = token => {
       token
     },
     method: 'get'
-  })
-}
+  });
+};
 
 export const logout = () => {
   return axios.request({
     url: 'logout',
     method: 'post'
-  })
-}
+  });
+};
 
 export const getUnreadCount = () => {
   return axios.request({
     url: 'message/count',
     method: 'get'
-  })
-}
+  });
+};
 
 export const getMessage = () => {
   return axios.request({
     url: 'message/init',
     method: 'get'
-  })
-}
+  });
+};
 
 // eslint-disable-next-line camelcase
 // export const getContentByMsgId = (msg_id) => {

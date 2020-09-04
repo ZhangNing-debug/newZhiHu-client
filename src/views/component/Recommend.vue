@@ -47,18 +47,18 @@
 </template>
 
 <script>
-import { ref } from 'vue'
+import { ref } from 'vue';
 export default {
   name: 'Recommend',
-  setup(props, ctx) {
-    const num = ref(0)
-    const list = ['1', '2', '3', '4', '5', '6', '7']
+  setup (props, ctx) {
+    const num = ref(0);
+    const list = ['1', '2', '3', '4', '5', '6', '7'];
     return {
       num,
       list
-    }
+    };
   }
-}
+};
 </script>
 <style lang="less" scoped>
 .topStoryItem {

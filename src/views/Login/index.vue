@@ -2,7 +2,7 @@
   <div class="container">
     <div class="homePage-content">
       <header>
-        <img class="homePage-logo" src="../../assets/background/logo.png" alt srcset />
+        <img class="homePage-logo" src="@assets/background/logo.png" alt srcset />
       </header>
       <main class="login-wrapper">
         <div class="main-content">
@@ -81,8 +81,7 @@
               </button>
             </div>
           </div>
-          <button class="login-btn button--plain" @click="handleLogin">登录</button>
-
+          <a-button class="login-btn button--plain" @click="handleLogin">登录</a-button>
           <div class="login-tip">
             <span>未注册手机验证后自动登录，注册即代表同意</span>
             <a href="https://www.zhihu.com/term/zhihu-terms">《知乎协议》</a>
@@ -92,19 +91,19 @@
             <span>社交账号登录</span>
             <span class="login-socialBtnGroup">
               <a-button type="link" class="login-socialBtn button--plain">
-                <WechatOutlined style="color: #60c84d; fontsize: 18px;" />
+                <WechatOutlined style="color: #60c84d; fontsize: 18px" />
                 微信
               </a-button>
               <a-button type="link" class="login-socialBtn button--plain">
-                <QqOutlined style="color: #50c8fd; fontsize: 18px;" />
+                <QqOutlined style="color: #50c8fd; fontsize: 18px" />
                 QQ
               </a-button>
               <a-button type="link" class="login-socialBtn button--plain">
-                <WeiboOutlined style="color: #fb6622; fontsize: 18px;" />
+                <WeiboOutlined style="color: #fb6622; fontsize: 18px" />
                 微博
               </a-button>
               <a-button type="link" class="login-socialBtn button--plain" @click="handleLogin">
-                <GithubFilled style="fontsize: 18px;" />
+                <GithubFilled style="fontsize: 18px" />
                 Git
               </a-button>
             </span>
@@ -114,21 +113,8 @@
         <div class="footer-options">
           <div class="signup">
             <a-button type="link">
-              <span style="display: inline-flex; align-items: center;">
-                <!-- <svg
-                  class="Zi Zi--BadgeCert css-vfpo4o"
-                  fill="currentColor"
-                  viewBox="0 0 24 24"
-                  width="26"
-                  height="26"
-                  style="margin-right: 0.5em;"
-                >
-                  <g fill="none" fill-rule="evenodd">
-                    <path fill="#0F88EB" :d="jghPath" />
-                    <path fill="#FFF" :d="okPath" />
-                  </g>
-                </svg> -->
-                <CheckCircleFilled style="fontsize: 22px; margin-right: 0.5em;" />
+              <span style="display: inline-flex; align-items: center">
+                <CheckCircleFilled style="fontsize: 22px; margin-right: 0.5em" />
                 开通机构号
               </span>
             </a-button>
@@ -136,66 +122,58 @@
 
           <div class="downloadApp">
             <a-button type="link">
-              <span style="display: inline-flex; align-items: center;">
-                <ZhihuCircleFilled style="fontsize: 22px; margin-right: 0.5em;" />
+              <span style="display: inline-flex; align-items: center">
+                <ZhihuCircleFilled style="fontsize: 22px; margin-right: 0.5em" />
                 下载知乎APP
               </span>
             </a-button>
           </div>
         </div>
       </main>
+      <footer class="homePage-footer">
+        <div class="ZhihuLinks">
+          <a target="_blank" href="https://zhuanlan.zhihu.com">知乎专栏</a>
+          <a target="_blank" href="/roundtable">圆桌</a>
+          <a target="_blank" href="/explore">发现</a>
+          <a target="_blank" href="/app">移动应用</a>
+          <a target="_blank" href="/contact">联系我们</a>
+          <a target="_blank" href="https://app.mokahr.com/apply/zhihu">来知乎工作</a>
+          <a target="_blank" href="/org/signup">注册机构号</a>
+        </div>
+        <div class="ZhihuRights">
+          <span>© 2020 知乎</span>
+          <a target="_blank" href="https://tsm.miit.gov.cn/dxxzsp/"> 京 ICP 证 110745 号 </a>
+          <a target="_blank" href="http://www.beian.miit.gov.cn"> 京 ICP 备 13052560 号 - 1 </a>
+          <a
+            target="_blank"
+            href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802020088"
+          >
+            <img src="https://pic3.zhimg.com/80/v2-d0289dc0a46fc5b15b3363ffa78cf6c7.png" />
+            京公网安备 11010802010035 号
+          </a>
+          <a href="https://zhstatic.zhihu.com/assets/zhihu/publish-license.jpg" target="_blank">
+            出版物经营许可证
+          </a>
+        </div>
+        <div class="ZhihuReports">
+          <a target="_blank" href="https://zhuanlan.zhihu.com/p/51068775"> 侵权举报 </a>
+          <a target="_blank" href="http://www.12377.cn"> 网上有害信息举报专区 </a>
+          <a target="_blank" href="/term/child-jubao"> 儿童色情信息举报专区 </a>
+          <span>违法和不良信息举报：010-82716601</span>
+        </div>
+      </footer>
     </div>
-    <footer class="homePage-footer">
-      <div class="ZhihuLinks">
-        <a target="_blank" rel="noopener noreferrer" href="https://zhuanlan.zhihu.com">知乎专栏</a
-        ><a target="_blank" rel="noopener noreferrer" href="/roundtable">圆桌</a
-        ><a target="_blank" rel="noopener noreferrer" href="/explore">发现</a
-        ><a target="_blank" rel="noopener noreferrer" href="/app">移动应用</a
-        ><a target="_blank" rel="noopener noreferrer" href="/contact">联系我们</a
-        ><a target="_blank" rel="noopener noreferrer" href="https://app.mokahr.com/apply/zhihu"
-          >来知乎工作</a
-        ><a target="_blank" rel="noopener noreferrer" href="/org/signup">注册机构号</a>
-      </div>
-      <div class="ZhihuRights">
-        <span>© 2020 知乎</span
-        ><a target="_blank" rel="noopener noreferrer" href="https://tsm.miit.gov.cn/dxxzsp/"
-          >京 ICP 证 110745 号</a
-        ><a target="_blank" rel="noopener noreferrer" href="http://www.beian.miit.gov.cn"
-          >京 ICP 备 13052560 号 - 1</a
-        ><a
-          target="_blank"
-          rel="noopener noreferrer"
-          href="http://www.beian.gov.cn/portal/registerSystemInfo?recordcode=11010802020088"
-          ><img src="https://pic3.zhimg.com/80/v2-d0289dc0a46fc5b15b3363ffa78cf6c7.png" />京公网安备
-          11010802010035 号</a
-        ><a
-          href="https://zhstatic.zhihu.com/assets/zhihu/publish-license.jpg"
-          target="_blank"
-          rel="noopener noreferrer"
-          >出版物经营许可证</a
-        >
-      </div>
-      <div class="ZhihuReports">
-        <a target="_blank" rel="noopener noreferrer" href="https://zhuanlan.zhihu.com/p/51068775"
-          >侵权举报</a
-        ><a target="_blank" rel="noopener noreferrer" href="http://www.12377.cn"
-          >网上有害信息举报专区</a
-        ><a target="_blank" rel="noopener noreferrer" href="/term/child-jubao"
-          >儿童色情信息举报专区</a
-        ><span v-if="abs === false">违法和不良信息举报：010-82716601</span>
-      </div>
-    </footer>
   </div>
 </template>
 <script>
-import { reactive, toRefs, getCurrentInstance } from 'vue'
+import { reactive, toRefs, getCurrentInstance } from 'vue';
 // import { login } from "@/api/user";
-import { setToken } from '@/libs/util'
+import { setToken } from '@/libs/util';
 // import svgPath from '@/config/svgPath.js'
 // import config from '@/config';
 // const {homeName} = config;
-const prefixCls = 'login-tab'
-import { message } from 'ant-design-vue'
+const prefixCls = 'login-tab';
+import { message, Button, Input } from 'ant-design-vue';
 import {
   WechatOutlined,
   QqOutlined,
@@ -203,7 +181,7 @@ import {
   GithubFilled,
   ZhihuCircleFilled,
   CheckCircleFilled
-} from '@ant-design/icons-vue'
+} from '@ant-design/icons-vue';
 export default {
   name: 'Login',
   components: {
@@ -212,9 +190,12 @@ export default {
     WeiboOutlined,
     GithubFilled,
     ZhihuCircleFilled,
-    CheckCircleFilled
+    CheckCircleFilled,
+    //
+    aButton: Button,
+    aInput: Input
   },
-  setup() {
+  setup () {
     const state = reactive({
       loginForm: {
         username: '',
@@ -235,64 +216,62 @@ export default {
       activeKey: 'Password_login',
       tipText: '输入 6 位短信验证码',
       letterStatus: 'Sms'
-    })
-    console.log(state)
+    });
+    console.log(state);
     // let data = toRefs(state);
     // onMounted(() => { });
     const switchSmsVoice = (val) => {
-      console.log(val)
+      console.log(val);
       if (val === 'Sms') {
-        state.letterStatus = 'Sms'
-        state.tipText = '输入 6 位短信验证码'
+        state.letterStatus = 'Sms';
+        state.tipText = '输入 6 位短信验证码';
       } else if (val === 'Voice') {
-        state.letterStatus = 'Voice'
-        state.tipText = '输入 6 位语音验证码'
+        state.letterStatus = 'Voice';
+        state.tipText = '输入 6 位语音验证码';
       }
-    }
+    };
     const handleChange = (item) => {
-      console.log(item)
-      state.activeKey = item.name
-    }
+      console.log(item);
+      state.activeKey = item.name;
+    };
     const tabCls = (item) => {
       return [
         `${prefixCls}`,
         {
-          // [`${prefixCls}-tab-disabled`]: item.disabled,
           [`${prefixCls}__active`]: item.name === state.activeKey
-          // [`${prefixCls}-tab-focused`]: item.name === this.focusedKey,
         }
-      ]
-    }
+      ];
+    };
     const checkCapslock = ({ shiftKey = '', key = '' } = {}) => {
       if (key && key.length === 1) {
         if ((shiftKey && key >= 'a' && key <= 'z') || (!shiftKey && key >= 'A' && key <= 'Z')) {
-          state.capsTooltip = true
+          state.capsTooltip = true;
         } else {
-          state.capsTooltip = false
+          state.capsTooltip = false;
         }
       }
       if (key === 'CapsLock' && state.capsTooltip === true) {
-        state.capsTooltip = false
+        state.capsTooltip = false;
       }
-    }
+    };
     const gitHubLogin = () => {
       const a =
-        'https://github.com/login/oauth/authorize?client_id=05836262c1c99fc6f393&redirect_uri=http://127.0.0.1:8080/oauth'
+        'https://github.com/login/oauth/authorize?client_id=05836262c1c99fc6f393&redirect_uri=http://127.0.0.1:8080/oauth';
       const windowObjectReference = window.open(
         a,
         '第三方登录',
         // eslint-disable-next-line max-len
         'height=100, width=400, top=0, left=0, toolbar=no, menubar=no, scrollbars=no, resizable=no, location=no, status=no'
-      )
-      state.window = windowObjectReference
-    }
-    const vm = getCurrentInstance().proxy
+      );
+      state.window = windowObjectReference;
+    };
+    const vm = getCurrentInstance().proxy;
     const handleLogin = () => {
-      console.log('正常登录')
-      setToken('65a4s65fas')
-      console.log(vm)
-      message.info('登陆成功啦~')
-      vm.$router.push('/')
+      console.log('正常登录');
+      setToken('65a4s65fas');
+      console.log(vm);
+      message.info('登陆成功啦~');
+      vm.$router.push('/');
 
       // login(state.loginForm).then(res => {
       //   console.log(res);
@@ -311,7 +290,7 @@ export default {
       //   if (res.status === 200) {
       //   }
       // });
-    }
+    };
     // const getUrlData = () => {
     //   console.log(this.$route.params);
     //   console.log(this.$route.query.code);
@@ -320,11 +299,10 @@ export default {
     //     : this.$route.query.fullPath;
     // };
 
-    console.log(getCurrentInstance())
     const oauthLogin = (data) => {
-      console.log(data)
-      state.window.close()
-    }
+      console.log(data);
+      state.window.close();
+    };
     return {
       ...toRefs(state),
       checkCapslock,
@@ -334,10 +312,315 @@ export default {
       tabCls,
       handleChange,
       switchSmsVoice
+    };
+  }
+};
+</script>
+<style scoped lang="less">
+// @import url('index.less');
+* {
+  padding: 0;
+  margin: 0;
+  font-family: 'Open Sans Light';
+  letter-spacing: 0.05em;
+
+  font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Microsoft YaHei,
+    Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif;
+}
+
+input,
+textarea,
+select,
+button,
+a:focus {
+  outline: none;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+.button--link,
+.button--plain {
+  height: auto;
+  padding: 0;
+  line-height: inherit;
+  background-color: transparent;
+  border: none;
+  border-radius: 0;
+  cursor: pointer;
+  outline: none;
+}
+
+// .Fcontainer {
+// 	height: 100%;
+// 	background-color: #b8e5f8;
+// }
+.container {
+  height: 100%;
+  background-image: url('../../assets/background/loginbgm.png');
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-color: #b8e5f8;
+  // display: flex;
+  // flex-direction: column;
+  // flex: 1 1;
+  // align-items: center;
+  // justify-content: center;
+
+  .homePage-logo {
+    width: 128px;
+    height: 81px;
+    margin-bottom: 24px;
+  }
+
+  .homePage-content {
+    display: flex;
+    flex-direction: column;
+    flex: 1 1;
+    align-items: center;
+    justify-content: center;
+    min-height: 688px;
+    height: calc(100% - 85px);
+  }
+}
+
+.login-wrapper {
+  background-color: #fff;
+  width: 400px;
+  box-shadow: 0 1px 3px rgba(26, 26, 26, 0.1);
+  border-radius: 2px;
+  margin: 0;
+  min-width: 0;
+  padding: 0;
+
+  .main-content {
+    padding: 0 22px;
+  }
+
+  .login-tabs {
+    color: #1a1a1a;
+    font-weight: 600;
+
+    .login-tab {
+      display: inline-block;
+      color: #444;
+      font-size: 16px;
+      line-height: 60px;
+      height: 60px;
+      margin-right: 24px;
+      cursor: pointer;
+      position: relative;
+    }
+
+    .login-tab__active {
+      &::after {
+        display: block;
+        position: absolute;
+        bottom: 0;
+        content: '';
+        width: 100%;
+        height: 3px;
+        background-color: #0084ff;
+      }
+    }
+  }
+
+  .login-account {
+    display: flex;
+    margin-top: 24px;
+    // border-bottom: 1px solid #ebebeb;
+    width: 100%;
+    height: 48px;
+    padding: 0;
+    color: #8590a6;
+
+    input {
+      width: 100%;
+      height: 48px;
+      line-height: 24px;
+    }
+  }
+
+  .login-password {
+    display: flex;
+    margin-top: 12px;
+    // border-bottom: 1px solid #ebebeb;
+    width: 100%;
+    height: 48px;
+    padding: 0;
+    color: #8590a6;
+
+    input {
+      width: 100%;
+      height: 48px;
+      line-height: 24px;
+    }
+  }
+
+  .login-options {
+    width: 100%;
+    margin-top: 12px;
+    height: 20px;
+
+    .password-free {
+      display: flex;
+      justify-content: space-between;
+    }
+
+    .password-login {
+      display: flex;
+      justify-content: flex-end;
+    }
+
+    .login-switchType {
+      color: #175199;
+    }
+
+    .login-switchType:hover {
+      color: #76839b;
+    }
+
+    .login-cannotLogin {
+      color: #8590a6;
+    }
+
+    .login-cannotLogin:hover {
+      color: #808080;
+    }
+  }
+
+  .login-tip {
+    // display: flex;
+    // align-items: center;
+    // justify-content: space-between;
+    margin-top: 40px;
+    color: grey;
+    font-size: 13px;
+    border-bottom: 1px solid #ebebeb;
+    padding-bottom: 10px;
+  }
+
+  .login-btn {
+    color: #fff;
+    background-color: #0084ff;
+    width: 100%;
+    margin-top: 30px;
+    height: 36px;
+  }
+
+  .login-btn:hover {
+    background-color: #0077e6;
+  }
+
+  .login-socialLogin {
+    display: flex;
+    justify-content: space-between;
+    color: #8590a6;
+    height: 60px;
+    line-height: 60px;
+    // box-sizing: border-box;
+
+    .login-socialBtnGroup {
+      display: flex;
+      margin-left: 2px;
+      transition: opacity 0.3s ease;
+    }
+
+    .login-socialBtn {
+      display: inline-flex;
+      align-items: center;
+      cursor: pointer;
+      color: #8590a6;
+    }
+
+    .login-socialBtn:not(:first-child) {
+      margin-left: 10px;
+    }
+  }
+
+  .footer-options {
+    box-sizing: border-box;
+    margin: 0;
+    min-width: 0;
+    padding-left: 24px;
+    padding-right: 24px;
+    color: #0084ff;
+    width: 400px;
+    height: 60px;
+    align-items: center;
+    background-color: #f6f6f6;
+    display: flex;
+    font-size: inherit;
+    justify-content: space-between;
+
+    .downloadApp {
+      .downloadBtn {
+        color: #0084ff;
+        font-size: inherit;
+      }
     }
   }
 }
-</script>
-<style scoped lang="less">
-@import url('index.less');
+
+.homePage-footer {
+  font-size: 12px;
+  line-height: 21px;
+  text-align: center;
+  color: #fff;
+  text-shadow: 0 1px 2px #999;
+  padding-bottom: 20px;
+
+  a:not(:last-child):after {
+    content: ' \B7 ';
+    white-space: pre;
+    display: inline-block;
+  }
+
+  a {
+    img {
+      position: relative;
+      top: 4px;
+      margin-right: 2px;
+    }
+  }
+}
+
+.input {
+  -webkit-box-flex: 1;
+  -ms-flex: 1 1;
+  flex: 1 1;
+  padding: 0;
+  overflow: hidden;
+  font-family: inherit;
+  font-size: inherit;
+  font-weight: inherit;
+  background: transparent;
+  border: none;
+  resize: none;
+}
+
+.oauth {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  margin-top: 15px;
+}
+
+.oauth-bg {
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  background-color: #f4f8fb;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.oauth-btn {
+  height: 1.9rem;
+  vertical-align: bottom;
+  cursor: pointer;
+}
 </style>

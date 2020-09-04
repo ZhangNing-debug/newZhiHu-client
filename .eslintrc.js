@@ -1,18 +1,3 @@
-// module.exports = {
-//   root: true,
-//   env: {
-//     node: true
-//   },
-//   extends: ["plugin:vue/vue3-essential", "eslint:recommended", "@vue/prettier"],
-//   parserOptions: {
-//     parser: "babel-eslint"
-//   },
-//   rules: {
-//     "no-console": process.env.NODE_ENV === "production" ? "warn" : "off",
-//     "no-debugger": process.env.NODE_ENV === "production" ? "warn" : "off"
-//   }
-// };
-
 module.exports = {
   // extends: ['alloy', 'alloy/vue', 'plugin:vue/vue3-essential'],
   extends: ['alloy', 'alloy/vue'],
@@ -183,6 +168,7 @@ module.exports = {
         capIsNew: false
       }
     ],
+    'no-param-reassign': [0, { props: false }],
     'new-parens': 2, // 调用不带参数的函数时需要括号
     'no-array-constructor': 2, // 禁止阵列构建器
     'no-caller': 2, // 禁止使用来电者/被叫者
@@ -307,7 +293,7 @@ module.exports = {
         allowTemplateLiterals: true
       }
     ],
-    semi: [2, 'never'],
+    semi: [2, 'always'],
     'semi-spacing': [
       2,
       {
@@ -316,7 +302,7 @@ module.exports = {
       }
     ],
     'space-before-blocks': [2, 'always'], // 不要存在多余的块空间
-    'space-before-function-paren': [2, 'never'],
+    'space-before-function-paren': [2, 'always'],
     'space-in-parens': [2, 'never'],
     'space-infix-ops': 2,
     'space-unary-ops': [
@@ -350,4 +336,4 @@ module.exports = {
     ],
     'array-bracket-spacing': [2, 'never']
   }
-}
+};

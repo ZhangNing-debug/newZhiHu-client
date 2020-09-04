@@ -383,9 +383,7 @@
 </template>
 
 <script>
-import { reactive, toRefs, onMounted } from 'vue'
-// import {Button} from 'element-ui';
-// import { UserOutlined } from '@ant-design/icons-vue'
+import { reactive, toRefs, onMounted } from 'vue';
 import {
   BellFilled,
   MessageFilled,
@@ -398,12 +396,9 @@ import {
   SolutionOutlined,
   RightOutlined,
   ExportOutlined
-} from '@ant-design/icons-vue'
-// import { Icon } from '@ant-design'
-// const IconFont = Icon.createFromIconfontCN({
-//   scriptUrl: '//at.alicdn.com/t/font_8d5l8fzk5b87iudi.js'
-// })
-// <UserOutlined />
+  //
+} from '@ant-design/icons-vue';
+import { Dropdown, Button, Card, Avatar, Menu } from 'ant-design-vue';
 export default {
   components: {
     BellFilled,
@@ -416,9 +411,16 @@ export default {
     HighlightOutlined,
     SolutionOutlined,
     RightOutlined,
-    ExportOutlined
+    ExportOutlined,
+    //
+    aDropdown: Dropdown,
+    aButton: Button,
+    aCard: Card,
+    aAvatar: Avatar,
+    aMenu: Menu,
+    aMenuItem: Menu.Item
   },
-  setup() {
+  setup () {
     const state = reactive({
       listData: [
         { title: '首页', to: '/' },
@@ -428,22 +430,22 @@ export default {
       capsTooltip: false,
       window: null,
       scrollTop: null
-    })
+    });
     const handleScroll = (e) => {
       state.scrollTop =
-        window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop
+        window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
       // console.log('滚动条', e, scrollTop)
-    }
+    };
     // console.log(scrollTop)
     onMounted(() => {
-      window.addEventListener('scroll', handleScroll, true)
-    })
+      window.addEventListener('scroll', handleScroll, true);
+    });
 
     return {
       ...toRefs(state)
-    }
+    };
   }
-}
+};
 </script>
 
 <style scoped lang="less">
@@ -717,7 +719,6 @@ export default {
   .globalSideBar {
     flex: 2;
     margin-left: 10px;
-    background-color: yellow;
     height: 100%;
   }
 

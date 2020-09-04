@@ -13,10 +13,10 @@
 export default {
   name: '',
   components: {},
-  data() {
+  data () {
     return {
 
-    }
+    };
   },
   computed: {
 
@@ -24,16 +24,16 @@ export default {
   watch: {
 
   },
-  created() {
+  created () {
 
   },
-  mounted() {
+  mounted () {
 
   },
   methods: {
 
   }
-}
+};
 
 </script>
 <style lang='less' scoped>
