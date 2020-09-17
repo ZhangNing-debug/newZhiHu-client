@@ -1,21 +1,22 @@
-/* eslint-disable vue/no-unused-vars */
 <template>
-  <!-- top -->
   <header
     :class="['appHeader', scrollTop > 30 && ['is-fixed', 'is-hidden']]"
-    :style="[scrollTop > 0 && { top: 0, left: 0 }]"
+    :style="[scrollTop > 30 && { top: 0, left: 0 }]"
   >
     <!-- <div class="appHeader"> -->
     <div class="appHeader-inner">
       <a href="/" class="appHeader-Logo">知乎</a>
-      <ul class="appHeader-Tabs">
-        <li v-for="(item, index) in listData" :key="index" class="Tabs-item appHeader-Tab">
-          <!-- <a href="/" class="Tabs-link appHeader-TabsLink">{{ item }}</a> -->
-          <router-link :to="item.to" class="Tabs-link appHeader-TabsLink">{{
-            item.title
-          }}</router-link>
-        </li>
-      </ul>
+      <nav class="appHeader-Tabs">
+          <!-- 模糊匹配 -->
+          <router-link
+            v-for="(item) in headerTabsList"
+            :key="item.id"
+            :to="item.to"
+            class="Tabs-link"
+            active-class="Tabs-link-active"
+            >{{ item.title }}</router-link
+          >
+      </nav>
       <div class="searchBar">
         <div class="searchBar-Warpper">
           <label class="searchBar-Input input-Warpper">
@@ -48,38 +49,6 @@
         </div>
         <div class="AppHeader-profile">
           <div class="Popover AppHeader-menu">
-            <!-- <button id="Popover14-toggle" type="button">
-              <img
-                src="https://pic4.zhimg.com/da8e974dc_is.jpg"
-                class="Avatar AppHeader-profileAvatar"
-                width="30"
-                height="30"
-                srcset="https://pic4.zhimg.com/da8e974dc_im.jpg 2x"
-              />
-            </button> -->
-
-            <!-- <a-dropdown>
-              <a class="ant-dropdown-link" @click="(e) => e.preventDefault()">
-                <a-avatar
-                  src="https://pic4.zhimg.com/da8e974dc_is.jpg"
-                  shape="square"
-                  :size="large"
-                />
-              </a>
-              // eslint-disable-next-line vue/no-unused-vars
-              <a-menu v-slot="overlay">
-                {{ overlay }}
-                <a-menu-item>
-                  <a href="javascript:;">1st menu item</a>
-                </a-menu-item>
-                <a-menu-item>
-                  <a href="javascript:;">2nd menu item</a>
-                </a-menu-item>
-                <a-menu-item>
-                  <a href="javascript:;">3rd menu item</a>
-                </a-menu-item>
-              </a-menu>
-            </a-dropdown> -->
             <a-dropdown :trigger="['click']">
               <a-button
                 :style="{ width: '34px', height: '34px', padding: 0 }"
@@ -98,20 +67,20 @@
               <template v-slot:overlay>
                 <a-menu>
                   <a-menu-item key="0">
-                    <a href="http://www.alipay.com/"
-                      ><UserOutlined style="margin-right: 0.5em;" />我的主页</a
-                    >
+                    <div>
+                      <UserOutlined style="margin-right: 0.5em" />我的主页
+                    </div>
                   </a-menu-item>
                   <a-menu-item key="1">
-                    <a href="http://www.taobao.com/"
-                      ><SettingOutlined style="margin-right: 0.5em;" />设置</a
-                    >
+                    <div>
+                      <SettingOutlined style="margin-right: 0.5em" />设置
+                    </div>
                   </a-menu-item>
                   <!-- <a-menu-divider /> -->
-                  <a-menu-item key="3">
-                    <a href="http://www.taobao.com/"
-                      ><ExportOutlined style="margin-right: 0.5em;" />退出</a
-                    >
+                  <a-menu-item key="3" >
+                    <div @click="outLogin">
+                      <ExportOutlined style="margin-right: 0.5em" />退出
+                    </div>
                   </a-menu-item>
                 </a-menu>
               </template>
@@ -128,47 +97,27 @@
             <a href="/" class="topStoryPageHead-Logo">知乎</a>
             <nav class="topStoryPageHead-tabs">
               <router-link
-                :class="[
-                  'topStory-link',
-                  'topStory-tabsLink',
-                  $route.name === 'recommend' && 'is-active'
-                ]"
-                to="/"
-              >
-                推荐
-              </router-link>
-              <router-link
-                :class="[
-                  'topStory-link',
-                  'topStory-tabsLink',
-                  $route.name === 'follow' && 'is-active'
-                ]"
-                to="/follow"
-              >
-                关注
-              </router-link>
-              <router-link
-                :class="[
-                  'topStory-link',
-                  'topStory-tabsLink',
-                  $route.name === 'hot' && 'is-active'
-                ]"
-                to="/hot"
-              >
-                热榜
-              </router-link>
+                  :class="[
+                    'topStory-link',
+                    'topStory-tabsLink'
+                  ]"
+                  exact-active-class="is-active"
+                  :to="item.to"
+                  v-for="(item) in topStoryTabList"
+                  :key="item.id"
+                >
+                  {{item.title}}
+                </router-link>
             </nav>
           </div>
           <div class="topStoryPageHead-aside">
             <a-input-search
               class="topStoryPageHead-search"
               placeholder="搜索你感兴趣的内容…"
-              style="width: 200px;"
+              style="width: 200px"
               @search="onSearch"
             />
-            <a-button class="topStoryPageHead-submit" type="primary">
-              提问
-            </a-button>
+            <a-button class="topStoryPageHead-submit" type="primary"> 提问 </a-button>
           </div>
         </div>
       </div>
@@ -188,32 +137,14 @@
                 <router-link
                   :class="[
                     'topStory-link',
-                    'topStory-tabsLink',
-                    $route.name === 'recommend' && 'is-active'
+                    'topStory-tabsLink'
                   ]"
-                  to="/"
+                  :to="item.to"
+                  :key="item.id"
+                  v-for="(item) in topStoryTabList"
+                  exact-active-class="is-active"
                 >
-                  推荐
-                </router-link>
-                <router-link
-                  :class="[
-                    'topStory-link',
-                    'topStory-tabsLink',
-                    $route.name === 'follow' && 'is-active'
-                  ]"
-                  to="/follow"
-                >
-                  关注
-                </router-link>
-                <router-link
-                  :class="[
-                    'topStory-link',
-                    'topStory-tabsLink',
-                    $route.name === 'hot' && 'is-active'
-                  ]"
-                  to="/hot"
-                >
-                  热榜
+                  {{item.title}}
                 </router-link>
               </nav>
             </div>
@@ -229,14 +160,14 @@
         </div>
         <!-- 全局侧边栏 -->
         <div class="globalSideBar">
-          <a-card style="width: 300px; padding: 0;" class="card newGlobalWrite">
+          <a-card style="width: 300px; padding: 0" class="card newGlobalWrite">
             <div class="newGlobalWrite-navTop">
               <div class="newGlobalWrite-topItem">
                 <a-button
                   type="primary"
                   shape="circle"
                   class="newGlobalWrite-topButton"
-                  style="background: rgb(0, 132, 255);"
+                  style="background: rgb(0, 132, 255)"
                 >
                   <ProfileOutlined />
                 </a-button>
@@ -247,7 +178,7 @@
                   type="primary"
                   shape="circle"
                   class="newGlobalWrite-topButton"
-                  style="background: rgb(255, 150, 7);"
+                  style="background: rgb(255, 150, 7)"
                 >
                   <CameraOutlined />
                 </a-button>
@@ -258,7 +189,7 @@
                   type="primary"
                   shape="circle"
                   class="newGlobalWrite-topButton"
-                  style="background: rgb(244, 200, 7);"
+                  style="background: rgb(244, 200, 7)"
                 >
                   <FormOutlined />
                 </a-button>
@@ -269,7 +200,7 @@
                   type="primary"
                   shape="circle"
                   class="newGlobalWrite-topButton"
-                  style="background: rgb(38, 191, 191);"
+                  style="background: rgb(38, 191, 191)"
                 >
                   <HighlightOutlined />
                 </a-button>
@@ -277,95 +208,91 @@
               </div>
             </div>
             <div class="newGlobalWrite-navBottom">
-              <a-button type="link" class="newGlobalWriteBtn-item">
-                稍后答
-              </a-button>
-              <a-button type="link" class="newGlobalWriteBtn-item">
-                草稿箱
-              </a-button>
+              <a-button type="link" class="newGlobalWriteBtn-item"> 稍后答 </a-button>
+              <a-button type="link" class="newGlobalWriteBtn-item"> 草稿箱 </a-button>
             </div>
           </a-card>
-          <a-card style="width: 300px;" class="card creatorEntrance">
+          <a-card style="width: 300px" class="card creatorEntrance">
             <!-- <a-button type="link" class="newGlobalWriteBtn-item" style="display:flex"> -->
             <div class="creatorEntrance-inner">
-              <div style="color: #8590a6;">
-                <SolutionOutlined style="fontsize: 18px; margin-right: 5px;" />创作中心
+              <div style="color: #8590a6">
+                <SolutionOutlined style="fontsize: 18px; margin-right: 5px" />创作中心
               </div>
               <div>
-                <router-link to="/"> 去开通 <RightOutlined style="color: #8590a6;" /></router-link>
+                <router-link to="/"> 去开通 <RightOutlined style="color: #8590a6" /></router-link>
               </div>
             </div>
             <!-- </a-button> -->
           </a-card>
-          <a-card style="width: 300px;" class="card globalSideBar-category">
+          <a-card style="width: 300px" class="card globalSideBar-category">
             <div class="globalSideBarCategory-inner">
-              <div class="globalSideBarCategory-topItem">
+              <div class="globalSideBarCategory-topItem" >
                 <a-button
-                  type="primary"
+                  type="link"
                   shape="circle"
                   class="newGlobalWrite-topButton"
-                  style="background: rgb(0, 132, 255);"
+                  style="color:rgb(255, 207, 0);font-size:24px"
                 >
-                  <ProfileOutlined />
+                  <ThunderboltOutlined />
                 </a-button>
-                <div class="newGlobalWrite-topTitle">回答问题</div>
+                <div class="newGlobalWrite-topTitle">Live</div>
               </div>
               <div class="globalSideBarCategory-topItem">
                 <a-button
-                  type="primary"
+                  type="link"
                   shape="circle"
                   class="newGlobalWrite-topButton"
-                  style="background: rgb(255, 150, 7);"
+                  style="color: rgb(67, 212, 128);font-size:24px"
                 >
-                  <CameraOutlined />
+                  <!-- <CameraOutlined /> -->
+                  <ZIcon type="icon-icon_study_fill" />
                 </a-button>
-                <div class="newGlobalWrite-topTitle">拍个视频</div>
+                <div class="newGlobalWrite-topTitle">书店</div>
               </div>
               <div class="globalSideBarCategory-topItem">
                 <a-button
-                  type="primary"
+                  type="link"
                   shape="circle"
                   class="newGlobalWrite-topButton"
-                  style="background: rgb(244, 200, 7);"
+                  style="color:rgb(0, 132, 255);font-size:24px"
                 >
-                  <FormOutlined />
+                  <!-- <FormOutlined /> -->
+                  <ZIcon type="icon-juhua" />
                 </a-button>
-                <div class="newGlobalWrite-topTitle">写个文章</div>
+                <div class="newGlobalWrite-topTitle">圆桌</div>
               </div>
               <div class="globalSideBarCategory-topItem">
                 <a-button
-                  type="primary"
+                  type="link"
                   shape="circle"
                   class="newGlobalWrite-topButton"
-                  style="background: rgb(38, 191, 191);"
+                  style="color: rgb(15, 136, 235);font-size:24px"
                 >
-                  <HighlightOutlined />
-                  <icon-font type="icon-tuichu" />
+                  <ZIcon type="icon-pen" />
                 </a-button>
-                <div class="newGlobalWrite-topTitle">写个想法</div>
+                <div class="newGlobalWrite-topTitle">专栏</div>
               </div>
               <div class="globalSideBarCategory-topItem">
                 <a-button
-                  type="primary"
+                  type="link"
                   shape="circle"
                   class="newGlobalWrite-topButton"
-                  style="background: rgb(244, 200, 7);"
+                  style="color: rgb(84, 120, 240);font-size:24px"
                 >
-                  <FormOutlined />
+                  <ZIcon type="icon-fufeizixun" />
                 </a-button>
-                <div class="newGlobalWrite-topTitle">写个文章</div>
+                <div class="newGlobalWrite-topTitle">付费咨询</div>
               </div>
               <div class="globalSideBarCategory-topItem">
                 <a-button
-                  type="primary"
+                  type="link"
                   shape="circle"
                   class="newGlobalWrite-topButton"
-                  style="background: rgb(38, 191, 191);"
+                  style="color: rgb(88, 104, 209);font-size:24px"
                 >
-                  <HighlightOutlined />
-                  <icon-font type="icon-tuichu" />
+                  <ZIcon type="icon-baike" />
                 </a-button>
-                <div class="newGlobalWrite-topTitle">写个想法</div>
+                <div class="newGlobalWrite-topTitle">百科</div>
               </div>
             </div>
           </a-card>
@@ -383,8 +310,10 @@
 </template>
 
 <script>
-import { reactive, toRefs, onMounted } from 'vue';
+import { setToken } from '@/libs/util';
+import { reactive, toRefs, onMounted, getCurrentInstance } from 'vue';
 import {
+  createFromIconfontCN,
   BellFilled,
   MessageFilled,
   UserOutlined,
@@ -395,12 +324,17 @@ import {
   HighlightOutlined,
   SolutionOutlined,
   RightOutlined,
-  ExportOutlined
+  ExportOutlined,
+  ThunderboltOutlined
   //
 } from '@ant-design/icons-vue';
-import { Dropdown, Button, Card, Avatar, Menu } from 'ant-design-vue';
+const ZIcon = createFromIconfontCN({
+  scriptUrl: '//at.alicdn.com/t/font_2018651_15jhxv3kjwz.js' // 在 iconfont.cn 上生成
+});
+import { message, Dropdown, Button, Card, Avatar, Menu } from 'ant-design-vue';
 export default {
   components: {
+    ZIcon,
     BellFilled,
     MessageFilled,
     UserOutlined,
@@ -412,25 +346,37 @@ export default {
     SolutionOutlined,
     RightOutlined,
     ExportOutlined,
+    ThunderboltOutlined,
     //
     aDropdown: Dropdown,
-    aButton: Button,
     aCard: Card,
     aAvatar: Avatar,
     aMenu: Menu,
     aMenuItem: Menu.Item
   },
   setup () {
+    const vm = getCurrentInstance().proxy;
     const state = reactive({
-      listData: [
-        { title: '首页', to: '/' },
-        { title: '发现', to: '/' },
-        { title: '等你来答', to: '/' }
+      headerTabsList: [
+        { id: 'Ii@tf7', title: '首页', to: { name: 'Home' }},
+        { id: '^fZyDB', title: '发现', to: '/asd' },
+        { id: 'ZnRZaE', title: '等你来答', to: '/ccs' }
+      ],
+      topStoryTabList: [
+        { id: '5H&jcv', title: '推荐', to: '/' },
+        { id: 'ai0fKw', title: '关注', to: '/follow' },
+        { id: 'okINra', title: '热榜', to: '/hot' }
       ],
       capsTooltip: false,
       window: null,
       scrollTop: null
     });
+    const outLogin = () => {
+      //
+      setToken('');
+      message.info('已退出登录~');
+      vm.$router.push('/Login');
+    };
     const handleScroll = (e) => {
       state.scrollTop =
         window.pageYOffset || document.documentElement.scrollTop || document.body.scrollTop;
@@ -442,7 +388,8 @@ export default {
     });
 
     return {
-      ...toRefs(state)
+      ...toRefs(state),
+      outLogin
     };
   }
 };
@@ -453,7 +400,7 @@ export default {
   position: relative;
   z-index: 100;
   width: 100%;
-  min-width: 1032px;
+  // min-width: 1032px;
   overflow: hidden;
   background: #fff;
   box-shadow: 0 1px 3px rgba(26, 26, 26, 0.1);
@@ -478,22 +425,19 @@ export default {
     border-bottom: none;
     display: flex;
     padding: 0 23px;
-  }
-  .appHeader-Tab {
-    padding: 0 23px;
-  }
-  .Tabs-item {
     display: inline-block;
     .Tabs-link {
       font-weight: 600;
+      padding: 0 23px;
+      color: #8590a6;
+      font-size: 15px;
     }
     .Tabs-link:hover {
       color: #444;
     }
-  }
-  .appHeader-TabsLink {
-    color: #8590a6;
-    font-size: 15px;
+    .Tabs-link-active {
+      color: #0084ff;
+    }
   }
   .searchBar {
     display: flex;
@@ -657,10 +601,15 @@ export default {
         border-color: #0084ff;
       }
     }
+    .is-active {
+      color: #0084ff;
+      font-weight: 500;
+    }
   }
   .pageHead:not(.is-shown) {
     transform: translateY(100%);
   }
+
 }
 .is-hidden {
   .appHeader-inner {
@@ -675,13 +624,13 @@ export default {
   margin-bottom: 10px;
   background: #fff;
   overflow: hidden;
-  ::v-deep(.ant-card-body)  {
+  ::v-deep(.ant-card-body) {
     padding: 0;
   }
 }
 .appMain {
   width: 100%;
-  height: 100%;
+  height: calc(100vh - 80px);
   .topStory {
     width: 1000px;
     padding: 0 16px;
@@ -692,7 +641,8 @@ export default {
   }
   .topStory-mainColumn {
     flex: 5;
-    height: 100vh;
+
+    // height: calc(100vh - 122px);
   }
   .topStory-mainColumnCard {
   }
@@ -747,6 +697,7 @@ export default {
   }
   .newGlobalWrite-topButton {
     margin: 0 auto 12px;
+    border: none;
   }
   .newGlobalWrite-topTitle {
     font-size: 12px;

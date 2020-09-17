@@ -1,6 +1,6 @@
 module.exports = {
   // extends: ['alloy', 'alloy/vue', 'plugin:vue/vue3-essential'],
-  extends: ['alloy', 'alloy/vue'],
+  extends: ['alloy', 'alloy/vue', 'prettier'],
   env: {
     // 你的环境变量（包含多个预定义的全局变量）
     //
@@ -254,7 +254,7 @@ module.exports = {
     'no-unreachable': 2, // 返回，抛出，继续和中断语句后禁止无法访问的代码
     'no-unsafe-finally': 2, // 禁止finally块中的控制流语句
     'no-unused-vars': [
-      1,
+      0,
       {
         // 禁止使用未声明的变量
         vars: 'all',

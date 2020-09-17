@@ -1,10 +1,10 @@
 <template>
   <div class="container">
-    <div class="homePage-content">
-      <header>
+    <a-layout class="homePage-content">
+      <a-layout-header class="login-header">
         <img class="homePage-logo" src="@assets/background/logo.png" alt srcset />
-      </header>
-      <main class="login-wrapper">
+      </a-layout-header>
+      <a-layout-content class="login-wrapper">
         <div class="main-content">
           <div class="login-tabs">
             <div
@@ -61,27 +61,27 @@
           </div>
           <div class="login-options">
             <div v-if="activeKey === 'Password_login'" class="password-free">
-              <button class="login-switchType button--plain">海外手机号登录</button>
-              <button class="login-cannotLogin button--plain">忘记密码?</button>
+              <a-button class="login-switchType a-button--plain">海外手机号登录</a-button>
+              <a-button class="login-cannotLogin a-button--plain">忘记密码?</a-button>
             </div>
             <div v-else class="password-login">
-              <button
+              <a-button
                 v-if="letterStatus === 'Voice'"
-                class="login-cannotLogin button--plain"
+                class="login-cannotLogin a-button--plain"
                 @click="switchSmsVoice('Sms')"
               >
                 接收短信验证码
-              </button>
-              <button
+              </a-button>
+              <a-button
                 v-else
-                class="login-cannotLogin button--plain"
+                class="login-cannotLogin a-button--plain"
                 @click="switchSmsVoice('Voice')"
               >
                 接收语音验证码
-              </button>
+              </a-button>
             </div>
           </div>
-          <a-button class="login-btn button--plain" @click="handleLogin">登录</a-button>
+          <a-button class="login-btn a-button--plain" @click="handleLogin">登录</a-button>
           <div class="login-tip">
             <span>未注册手机验证后自动登录，注册即代表同意</span>
             <a href="https://www.zhihu.com/term/zhihu-terms">《知乎协议》</a>
@@ -90,47 +90,47 @@
           <div class="login-socialLogin">
             <span>社交账号登录</span>
             <span class="login-socialBtnGroup">
-              <a-button type="link" class="login-socialBtn button--plain">
+              <a-button type="link" class="login-socialBtn a-button--plain">
                 <WechatOutlined style="color: #60c84d; fontsize: 18px" />
                 微信
               </a-button>
-              <a-button type="link" class="login-socialBtn button--plain">
+              <a-button type="link" class="login-socialBtn a-button--plain">
                 <QqOutlined style="color: #50c8fd; fontsize: 18px" />
                 QQ
               </a-button>
-              <a-button type="link" class="login-socialBtn button--plain">
+              <a-button type="link" class="login-socialBtn a-button--plain">
                 <WeiboOutlined style="color: #fb6622; fontsize: 18px" />
                 微博
               </a-button>
-              <a-button type="link" class="login-socialBtn button--plain" @click="handleLogin">
+              <a-button type="link" class="login-socialBtn a-button--plain" @click="handleLogin">
                 <GithubFilled style="fontsize: 18px" />
                 Git
               </a-button>
             </span>
           </div>
-          <!-- <button class="btn">Login</button> -->
+          <!-- <a-button class="btn">Login</a-button> -->
         </div>
         <div class="footer-options">
           <div class="signup">
-            <a-button type="link">
+            <a-a-button type="link">
               <span style="display: inline-flex; align-items: center">
                 <CheckCircleFilled style="fontsize: 22px; margin-right: 0.5em" />
                 开通机构号
               </span>
-            </a-button>
+            </a-a-button>
           </div>
 
           <div class="downloadApp">
-            <a-button type="link">
+            <a-a-button type="link">
               <span style="display: inline-flex; align-items: center">
                 <ZhihuCircleFilled style="fontsize: 22px; margin-right: 0.5em" />
                 下载知乎APP
               </span>
-            </a-button>
+            </a-a-button>
           </div>
         </div>
-      </main>
-      <footer class="homePage-footer">
+      </a-layout-content>
+      <a-layout-footer class="login-footer">
         <div class="ZhihuLinks">
           <a target="_blank" href="https://zhuanlan.zhihu.com">知乎专栏</a>
           <a target="_blank" href="/roundtable">圆桌</a>
@@ -161,8 +161,8 @@
           <a target="_blank" href="/term/child-jubao"> 儿童色情信息举报专区 </a>
           <span>违法和不良信息举报：010-82716601</span>
         </div>
-      </footer>
-    </div>
+      </a-layout-footer>
+    </a-layout>
   </div>
 </template>
 <script>
@@ -173,7 +173,7 @@ import { setToken } from '@/libs/util';
 // import config from '@/config';
 // const {homeName} = config;
 const prefixCls = 'login-tab';
-import { message, Button, Input } from 'ant-design-vue';
+import { message, Button, Input, Layout } from 'ant-design-vue';
 import {
   WechatOutlined,
   QqOutlined,
@@ -193,7 +193,11 @@ export default {
     CheckCircleFilled,
     //
     aButton: Button,
-    aInput: Input
+    aInput: Input,
+    aLayout: Layout,
+    aLayoutHeader: Layout.Header,
+    aLayoutContent: Layout.Content,
+    aLayoutFooter: Layout.Footer
   },
   setup () {
     const state = reactive({
@@ -317,57 +321,12 @@ export default {
 };
 </script>
 <style scoped lang="less">
-// @import url('index.less');
-* {
-  padding: 0;
-  margin: 0;
-  font-family: 'Open Sans Light';
-  letter-spacing: 0.05em;
-
-  font-family: -apple-system, BlinkMacSystemFont, Helvetica Neue, PingFang SC, Microsoft YaHei,
-    Source Han Sans SC, Noto Sans CJK SC, WenQuanYi Micro Hei, sans-serif;
-}
-
-input,
-textarea,
-select,
-button,
-a:focus {
-  outline: none;
-}
-
-a {
-  color: inherit;
-  text-decoration: none;
-}
-
-.button--link,
-.button--plain {
-  height: auto;
-  padding: 0;
-  line-height: inherit;
-  background-color: transparent;
-  border: none;
-  border-radius: 0;
-  cursor: pointer;
-  outline: none;
-}
-
-// .Fcontainer {
-// 	height: 100%;
-// 	background-color: #b8e5f8;
-// }
 .container {
   height: 100%;
   background-image: url('../../assets/background/loginbgm.png');
   background-repeat: no-repeat;
   background-size: cover;
   background-color: #b8e5f8;
-  // display: flex;
-  // flex-direction: column;
-  // flex: 1 1;
-  // align-items: center;
-  // justify-content: center;
 
   .homePage-logo {
     width: 128px;
@@ -382,12 +341,19 @@ a {
     align-items: center;
     justify-content: center;
     min-height: 688px;
-    height: calc(100% - 85px);
+    // height: calc(100% - 85px);
+    height: 100%;
+    background-color: initial;
   }
 }
-
+.login-header {
+  background-color: initial;
+  height: auto;
+}
 .login-wrapper {
   background-color: #fff;
+  // background-color: initial;
+  flex: none;
   width: 400px;
   box-shadow: 0 1px 3px rgba(26, 26, 26, 0.1);
   border-radius: 2px;
@@ -523,7 +489,7 @@ a {
     // box-sizing: border-box;
 
     .login-socialBtnGroup {
-      display: flex;
+      // display: flex;
       margin-left: 2px;
       transition: opacity 0.3s ease;
     }
@@ -533,6 +499,8 @@ a {
       align-items: center;
       cursor: pointer;
       color: #8590a6;
+
+      padding: 0;
     }
 
     .login-socialBtn:not(:first-child) {
@@ -564,13 +532,14 @@ a {
   }
 }
 
-.homePage-footer {
+.login-footer {
   font-size: 12px;
   line-height: 21px;
   text-align: center;
   color: #fff;
   text-shadow: 0 1px 2px #999;
   padding-bottom: 20px;
+  background-color: initial;
 
   a:not(:last-child):after {
     content: ' \B7 ';
@@ -579,6 +548,8 @@ a {
   }
 
   a {
+    color: inherit;
+    text-decoration: none;
     img {
       position: relative;
       top: 4px;
@@ -599,6 +570,9 @@ a {
   background: transparent;
   border: none;
   resize: none;
+}
+.input:focus {
+  box-shadow: none;
 }
 
 .oauth {

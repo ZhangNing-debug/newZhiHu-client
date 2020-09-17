@@ -1,37 +1,18 @@
-<template>
-  <div>
-    Hot
-  </div>
-</template>
+<template></template>
 
 <script>
-
+import { ref, reactive, toRefs, onMounted, onUnmounted, watch, watchEffect, computed } from 'vue';
 export default {
   name: '',
   components: {},
-  data () {
+  setup () {
+    const state = reactive({
+
+    });
     return {
-
+      ...toRefs(state)
     };
-  },
-  computed: {
-
-  },
-  watch: {
-
-  },
-  created () {
-
-  },
-  mounted () {
-
-  },
-  methods: {
-
   }
 };
-
 </script>
-<style lang='less' scoped>
-
-</style>
+<style lang="less" scoped></style>

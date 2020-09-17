@@ -62,7 +62,8 @@ module.exports = {
       .set('@assets', resolve('src/assets'))
       .set('@components', resolve('src/components'))
       .set('@views', resolve('src/views'))
-      .set('@store', resolve('src/store'));
+      .set('@store', resolve('src/store'))
+      .set('@use', resolve('src/use'));
     // 打包分析
     // 打包之后自动生成一个名叫report.html文件(可忽视)
     if (process.env.npm_config_report) {
