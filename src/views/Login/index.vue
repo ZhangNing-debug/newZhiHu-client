@@ -270,12 +270,49 @@ export default {
       state.window = windowObjectReference;
     };
     const vm = getCurrentInstance().proxy;
+    const config = {
+      // 请求授权地址
+      userAuthorizationUri: 'https://github.com/login/oauth/authorize',
+      // accessToken请求地址
+      accessTokenUri: 'https://github.com/login/oauth/access_token',
+      // 用户信息请求地址
+      userInfoUri: 'https://api.github.com/user',
+      // 登出请求地址
+      logoutUri: 'https://github.com/logout',
+      // 项目地址
+      localuri: 'http://localhost:8080',
+      // 回调地址
+      redirect_uri: 'http://localhost:8080/oauth',
+      // 案例资源服务器地址
+      resUri: 'http://localhost:8080',
+      // 客户端相关标识，请从认证服务器申请
+      clientId: '05836262c1c99fc6f393',
+      client_secret: '56c0601c0b20edbf954ed79e8b90a3030cd6aa7d ',
+      // 申请的权限范围
+      scope: 'user',
+      // 可选参数，客户端的当前状态，可以指定任意值，用于校验，此次案例不做相关认证
+      state: '',
+      // 一些固定的请求参数
+      response_type: 'token',
+      grant_type: 'authorization_code',
+      code: ''
+    };
     const handleLogin = () => {
-      console.log('正常登录');
-      setToken('65a4s65fas');
-      console.log(vm);
-      message.info('登陆成功啦~');
-      vm.$router.push('/');
+      // let authorUrl = config.userAuthorizationUri;
+      // authorUrl = authorUrl + `?client_id:${config.ch}` + {
+      //   client_id: vue.$config.clientId,
+      //   response_type: vue.$config.response_type,
+      //   scope: vue.$config.scope,
+      //   state: vue.$config.state,
+      //   redirect_uri: vue.$config.redirect_uri
+      // };
+      window.location.href = `https://github.com/login/oauth/authorize?client_id=${config.clientId}&redirect_uri=${config.redirect_uri}`;
+      // window.open();
+      // console.log('正常登录');
+      // setToken('65a4s65fas');
+      // console.log(vm);
+      // message.info('登陆成功啦~');
+      // vm.$router.push('/');
 
       // login(state.loginForm).then(res => {
       //   console.log(res);
@@ -302,7 +339,7 @@ export default {
     //     ? this.$route.query.code
     //     : this.$route.query.fullPath;
     // };
-
+    // 56c0601c0b20edbf954ed79e8b90a3030cd6aa7d
     const oauthLogin = (data) => {
       console.log(data);
       state.window.close();

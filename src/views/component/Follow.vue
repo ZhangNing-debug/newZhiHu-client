@@ -1,4 +1,6 @@
-<template></template>
+<template>
+  <div></div>
+</template>
 
 <script>
 import { ref, reactive, toRefs, onMounted, onUnmounted, watch, watchEffect, computed } from 'vue';
@@ -15,4 +17,6 @@ export default {
   }
 };
 </script>
-<style lang="less" scoped></style>
+<style lang="less" scoped>
+//
+</style>

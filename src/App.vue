@@ -1,13 +1,5 @@
 <template>
   <router-view />
-  <!-- <a-tooltip placement="left">
-    <template v-slot:title>
-      <span>回到顶部</span>
-    </template>
-    <a-button type="primary" class="back-to-top">
-      <ArrowUpOutlined />
-    </a-button>
-  </a-tooltip> -->
   <a-tooltip placement="left">
     <template v-slot:title>
       <span>回到顶部</span>
@@ -40,10 +32,10 @@ export default {
 }
 html,
 body {
-  .size;
+  .size();
 }
 #app {
-  .size;
+  .size();
 }
 a {
   color: inherit;

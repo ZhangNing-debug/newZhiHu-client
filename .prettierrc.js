@@ -49,7 +49,11 @@ module.exports = {
   // 换行符使用 lf
   endOfLine: 'lf',
   // 不格式化vue
-  disableLanguages: ['vue']
+  disableLanguages: ['vue'],
+  // 函数名与括号之间添加空格
+  singleQuote: true,
+  insertSpaceBeforeFunctionParenthesis: true,
+
 
   /* prettier的配置 */
   // 'prettier.printWidth': 100, // 超过最大值换行

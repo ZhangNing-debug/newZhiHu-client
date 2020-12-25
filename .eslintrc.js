@@ -1,6 +1,6 @@
 module.exports = {
   // extends: ['alloy', 'alloy/vue', 'plugin:vue/vue3-essential'],
-  extends: ['alloy', 'alloy/vue', 'prettier'],
+  extends: ['plugin:vue/vue3-essential', 'prettier'],
   env: {
     // 你的环境变量（包含多个预定义的全局变量）
     //
@@ -18,6 +18,9 @@ module.exports = {
     // 你的全局变量（设置为 false 表示它不允许被重新赋值）
     //
     // myGlobal: false
+  },
+  parserOptions: {
+    ecmaVersion: 2020
   },
   rules: {
     // //////////////////
@@ -80,6 +83,7 @@ module.exports = {
     'vue/multiline-html-element-content-newline': 'off', // 在多行元素的内容之前和之后需要换行符
     'vue/attributes-order': 'off',
     'vue/valid-template-root': 'off',
+    'vue/no-multiple-template-root': 'off',
     // 'vue/component-definition-name-casing': ['error', 'PascalCase' | 'kebab-case'],
     // 'vue/eqeqeq': ['error', 'always']
 

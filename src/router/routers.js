@@ -2,7 +2,7 @@ import Home from '../views/Home.vue';
 import Follow from '../views/component/Follow.vue';
 import Hot from '../views/component/Hot.vue';
 import Recommend from '../views/component/Recommend.vue';
-const routes = [
+const routers = [
   {
     path: '/',
     name: 'Home',
@@ -26,7 +26,7 @@ const routes = [
     ]
   },
   {
-    path: '/Login',
+    path: '/login',
     name: 'Login',
     // route level code-splitting
     // this generates a separate chunk (about.[hash].js) for this route
@@ -36,9 +36,19 @@ const routes = [
     component: () => import(/* webpackChunkName: "about" */ '@views/Login/index.vue')
   },
   {
+    path: '/oauth',
+    name: 'oauth',
+    // route level code-splitting
+    // this generates a separate chunk (about.[hash].js) for this route
+    // which is lazy-loaded when the route is visited.
+    // component: () =>
+    //   import(/* webpackChunkName: "about" */ "../views/Login/index.vue")
+    component: () => import(/* webpackChunkName: "oauth" */ '@views/oauth/index.vue')
+  },
+  {
     path: '/explore',
     name: 'explore',
     component: () => import(/* webpackChunkName: "about" */ '@views/explore.vue')
   }
 ];
-export default routes;
+export default routers;

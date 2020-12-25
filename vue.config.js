@@ -162,30 +162,21 @@ module.exports = {
     },
     // host: 'localhost',
     port: 8080, // 端口号
-    https: true, // https:{type:Boolean}
+    https: false, // https:{type:Boolean}
     open: true, // 配置自动启动浏览器
-    hotOnly: true, // 热更新
-    // proxy: 'http://localhost:8080'   // 配置跨域处理,只有一个代理
-    proxy: {
-      // 配置多个跨域
-      '/api': {
-        target: 'http://172.11.11.11:7071',
-        changeOrigin: true,
-        // ws: true,//websocket支持
-        secure: false,
-        pathRewrite: {
-          '^/api': '/'
-        }
-      },
-      '/api2': {
-        target: 'http://172.12.12.12:2018',
-        changeOrigin: true,
-        // ws: true,//websocket支持
-        secure: false,
-        pathRewrite: {
-          '^/api2': '/'
-        }
-      }
-    }
+    hotOnly: true // 热更新
+    // proxy: 'http://localhost:8090' // 配置跨域处理,只有一个代理
+    // proxy: {
+    //   // 配置多个跨域
+    //   '/v1': {
+    //     target: 'http://localhost:8090',
+    //     changeOrigin: true,
+    //     // ws: true,//websocket支持
+    //     secure: false,
+    //     pathRewrite: {
+    //       '^/v1': '/'
+    //     }
+    //   }
+    // }
   }
 };
